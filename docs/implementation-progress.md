@@ -80,3 +80,9 @@ Dependency: sibling pinned-source `guardengine` crate, integration version guard
 No new checkbox is changed by this engine slice. Detailed review evidence: `/workspace/guard-implementation-ledger/testguard-engine-slice-report.md`.
 
 Engine slice final verification against clean GE0b3735f: `cargo test --locked`69 passed/0 failed; `cargo clippy --locked --all-targets -- -D warnings`, formatting and whitespace checks passed. Strict OpenSpec valid. Actual CLI fixture REQUIRE_APPROVAL envelope passed GE's published JSON Schema with format validation; unknown version/field rejected. Example bundle and plan plus logs preserved outside repo in the implementation ledger. Existing accepted task count stays7/30.
+
+### Bounded producer evaluation follow-up
+
+GE11e1d86 added the shared `integration::evaluate_bounded` producer API. TestGuard now calls it before report generation and retains GE artifact verification before completed issuance. A regression with individually bounded input but over-budget three-rule expansion failed under the former native evaluate call, then passed using the real GE API. Generic budget logic remains owned by GE. Final source provenance:11e1d86eb353f006844ebb6eefd93f24b98ee481. Checkbox acceptance remains7/30.
+
+Final bounded-API validation: `cargo test --locked`70 passed/0 failed (including genuine Cargo capture replay and fresh native Cargo runner tests), `cargo clippy --locked --all-targets -- -D warnings`, `cargo fmt --check`, and `git diff --check` passed. Cargo.lock required no change for GE11e1d86. RED/GREEN evidence: `tg-bounded-projection-red.log` and `tg-bounded-projection-green.log` in the implementation ledger.

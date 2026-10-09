@@ -132,3 +132,11 @@ fn captured_cargo_observation_replays_through_real_engine_and_envelope_verificat
     assert_eq!(report.decision, guardengine::Decision::Allow);
     assert_eq!(bundle.envelope.coverage.observed_scopes.len(), 1);
 }
+#[test]
+fn engine_projection_refuses_ge_expansion_budget_before_issuing_a_report() {
+    let plan = common::plan();
+    let attempt = common::attempt(&plan);
+    // Individual input is below GE's artifact limit; three rule evaluations exceed its expansion budget.
+    let advice = vec!["x".repeat(6 * 1024 * 1024)];
+    assert!(project(&plan, &attempt, &[], &advice, CAPABILITY).is_err());
+}

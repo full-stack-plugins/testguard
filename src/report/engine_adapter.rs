@@ -6,7 +6,7 @@ use crate::{
     report::{AttemptRecord, CaseStatus},
 };
 use guardengine::{
-    integration::{Coverage, CoverageStatus},
+    integration::{Coverage, CoverageStatus, evaluate_bounded},
     *,
 };
 pub const CAPABILITY: &str = "testguard.engine-fixture/v1";
@@ -177,7 +177,7 @@ pub fn project(
             vec![]
         },
     };
-    let report = evaluate(&contract, &facts).map_err(|e| e.to_string())?;
+    let report = evaluate_bounded(&contract, &facts).map_err(|e| e.to_string())?;
     let expected = match assessment.decision {
         crate::policy::Decision::Allow => Decision::Allow,
         crate::policy::Decision::Block => Decision::Block,
