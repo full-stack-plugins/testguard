@@ -1,0 +1,62 @@
+{
+  "schema": "testguard.native-capture/v1",
+  "sources": {
+    "native/build.gradle": "2bdda48541a8b327edec6688e44ddb9fbf391022f3834013d401214d7d5c7f02",
+    "native/gradle.properties": "01c0926167efd9d183a8506626123316d52db5904be670345f1dbb26044a57e5",
+    "native/pom.xml": "fd2b6907bf2210691b73f7dc84cb1c67cdbc97724f8b8af82689fdc9ef5ebf80",
+    "native/settings.gradle": "9bfc1a06890af1b04abe989989c03d1899786fd22f50ea106d9a70ce7e661692",
+    "native/settings.xml": "cef623e67efcd1c6afde02f216e6962d3fac360d25b2ec4ca7b8b7e715cb8ee1",
+    "native/src/test/java/CasesTest.java": "c7425e1aaec6907a48f4aa8c853b46a3632a7f5012a2b83816043f7f2c717c79",
+    "native/src/test/java/CollidingParametersTest.java": "4ad5be4a9576c2b88fb5b09f4b19e6537f36b8794072a0bc65481c0c4c52da2b",
+    "native/src/test/java/UniqueParametersTest.java": "d1a557b6b1eec597407a47663cd985fd3d1a084eaef8a3a1f909aa8f764fb5cd"
+  },
+  "capture_script_sha256": "cc235d58700b54ac90caa691d49b319d9e0439c9340946446788af7b138f5b78",
+  "tools": {
+    "gradle_distribution": {
+      "path": "/workspace/guard-toolchain/gradle/gradle-8.14.3-bin.zip",
+      "sha256": "bd71102213493060956ec229d946beee57158dbd89d0e62b91bca0fa2c5f3531"
+    },
+    "maven_distribution": {
+      "path": "/workspace/guard-toolchain/maven/maven.tar.gz",
+      "sha256": "7a9cdf674fc1703d6382f5f330b3d110ea1b512b51f1652846d9e4e8a588d766"
+    },
+    "java": {
+      "path": "/workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64/bin/java",
+      "sha256": "6698f6f10143ed8463b06062281c727152d2e0ae2a3569b1716fbb2c6cedf0ba"
+    },
+    "javac": {
+      "path": "/workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64/bin/javac",
+      "sha256": "94b4eb733f5d6b44ff7ae8437206de8428ac4e2e3e8efc50b204e54c5d84dcc3"
+    },
+    "junit_jar": {
+      "path": "/workspace/guard-toolchain/maven/repository/junit/junit/4.13.2/junit-4.13.2.jar",
+      "sha256": "8e495b634469d64fb8acfa3495a065cbacc8a0fff55ce1e31007be4c16dc57d3"
+    },
+    "java_modules": {
+      "path": "/workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64/lib/modules",
+      "sha256": "f82ec56fbf7c7b69da09a04d4fb103c74c44e6443c8a1b2744e59c5539e7f781"
+    },
+    "java_vm": {
+      "path": "/workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64/lib/server/libjvm.so",
+      "sha256": "56a71b907446b53ea9ab0f1599d3c22298f150ac2f9530acc62d5e7fc003e564"
+    },
+    "surefire_plugin": {
+      "path": "/workspace/guard-toolchain/maven/repository/org/apache/maven/plugins/maven-surefire-plugin/3.5.2/maven-surefire-plugin-3.5.2.jar",
+      "sha256": "18fb9be8981fe43d3efa1d847955cdfa1a3c64d5fa463d123dee7278afd88c14"
+    },
+    "surefire_junit4_provider": {
+      "path": "/workspace/guard-toolchain/maven/repository/org/apache/maven/surefire/surefire-junit4/3.5.2/surefire-junit4-3.5.2.jar",
+      "sha256": "f1aef27e24eedea9f06093e353f4320eee99918260d19f6a0b4d823bd226805e"
+    },
+    "maven_version": "Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)\nMaven home: /workspace/guard-toolchain/maven/apache-maven-3.9.9\nJava version: 21.0.12.1, vendor: Debian, runtime: /workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64\nDefault locale: en, platform encoding: UTF-8\nOS name: \"linux\", version: \"6.18.44\", arch: \"amd64\", family: \"unix\"\n",
+    "gradle_version": "\n------------------------------------------------------------\nGradle 8.14.3\n------------------------------------------------------------\n\nBuild time:    2025-07-04 13:15:44 UTC\nRevision:      e5ee1df3d88b8ca3a8074787a94f373e3090e1db\n\nKotlin:        2.0.21\nGroovy:        3.0.24\nAnt:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024\nLauncher JVM:  21.0.12.1 (Debian 21.0.12.1+1-1-deb13u1-Debian)\nDaemon JVM:    /workspace/guard-toolchain/jdk21/usr/lib/jvm/java-21-openjdk-amd64 (no JDK specified, using current Java home)\nOS:            Linux 6.18.44 amd64\n\n",
+    "java_version": "openjdk version \"21.0.12.1\" 2026-08-18\nOpenJDK Runtime Environment (build 21.0.12.1+1-1-deb13u1-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-deb13u1-Debian, mixed mode, sharing)\n"
+  },
+  "gradle_distribution_verification": {
+    "version": "8.14.3",
+    "url": "https://downloads.gradle.org/distributions/gradle-8.14.3-bin.zip",
+    "checksum_url": "https://downloads.gradle.org/distributions/gradle-8.14.3-bin.zip.sha256",
+    "sha256": "bd71102213493060956ec229d946beee57158dbd89d0e62b91bca0fa2c5f3531",
+    "size": 137393837
+  }
+}

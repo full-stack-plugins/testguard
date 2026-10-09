@@ -31,7 +31,7 @@ Typical uses include proving that a requirement's negative cases ran, validating
 - **Owned here:** test-plan adequacy, runner adapters, observed test execution, coverage denominators, regression/flaky evidence and provenance checks.
 - **Other products:** SpecGuard owns requirement meaning; ArchGuard owns architecture invariants; CodeGuard owns static quality; GitGuard owns candidate/branch safety; FlowGuard owns lifecycle conditions. The six guards are independent products on GuardEngine. TestGuard never grants merge/release authority or authenticates its own approvals.
 
-Current native profiles cover pinned Cargo1.99.0 and Maven Surefire3.5.2/JUnit fixtures; Gradle provenance remains unsupported. The broader target includes additional native frameworks. Vitest/Jest, Playwright, coverage tools, mutation tools, MCP and CI integrations follow measured adapter validation. No external legacy plugin is present or verified in this repository; any compatibility is an unverified future target.
+Current native profiles cover pinned Cargo1.99.0 and Maven3.9.9/Surefire3.5.2 and Gradle8.14.3 with JUnit4.13.2 fixtures ([native matrix](fixtures/junit/matrix/README.md)); task2.1 awaits independent review. The broader target includes additional native frameworks. Vitest/Jest, Playwright, coverage tools, mutation tools, MCP and CI integrations follow measured adapter validation. No external legacy plugin is present or verified in this repository; any compatibility is an unverified future target.
 
 ## Current local CLI
 

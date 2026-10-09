@@ -1,0 +1,54 @@
+{
+  "exit_code": 0,
+  "termination": null,
+  "testcase_ready": false,
+  "wall_seconds": 5.791,
+  "cleanup_complete": true,
+  "owned_pids": [
+    1359359,
+    1359395
+  ],
+  "output_limit_per_pipe": 2097152,
+  "tool": "gradle",
+  "scenario": "zero",
+  "command": [
+    "/workspace/guard-toolchain/gradle/gradle-8.14.3/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "--console=plain",
+    "--project-dir",
+    "/workspace/guard-implementation-ledger/tg-junit-jefu1w8q",
+    "test",
+    "--tests",
+    "NoSuchTest"
+  ],
+  "cwd": "/workspace/guard-implementation-ledger/tg-junit-jefu1w8q",
+  "report_path": "/workspace/guard-implementation-ledger/tg-junit-jefu1w8q/build/test-results/test/TEST-CasesTest.xml",
+  "fresh_report_root": true,
+  "fault_injection": null,
+  "partial_scope": false,
+  "native_xml": null,
+  "profile": {
+    "tool": "gradle",
+    "version": "8.14.3",
+    "protocol": "junit-xml-v1"
+  },
+  "junit_version": "4.13.2",
+  "required_baseline_methods": [
+    "CasesTest.passA",
+    "CasesTest.passB"
+  ],
+  "sha256": {
+    "report.raw.xml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.raw": "0c1a18af84ce39fa4da5123c9e37d9b87a6d1b54e68463cac8c448fdbf798492"
+  },
+  "native_console_counts": {
+    "tests": 0,
+    "failures": 0,
+    "skipped": 0,
+    "successful": 0
+  }
+}

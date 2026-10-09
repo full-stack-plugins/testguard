@@ -31,7 +31,7 @@ TestGuard 充分性 finding → 符合现有 schema 的 GuardEngine facts
 - **本域责任：** 测试计划充分性、Runner 适配器、实际执行、覆盖分母、回归/flaky 证据与来源检查。
 - **其他产品：** SpecGuard 定义需求含义；ArchGuard 定义架构不变量；CodeGuard 负责静态质量；GitGuard 负责候选/分支安全；FlowGuard 负责生命周期条件。六个守卫独立构建于 GuardEngine 之上。TestGuard 不授予合并/发布权，也不认证自己的审批。
 
-当前原生 profile 覆盖固定 Cargo1.99.0 以及 Maven Surefire3.5.2/JUnit 夹具；Gradle 来源尚不支持。Vitest/Jest、Playwright、覆盖/变异工具、MCP 与 CI 集成须随后逐项验收。仓库没有已验证的外部历史插件，其兼容性仅为待验证目标。
+当前原生 profile 覆盖固定 Cargo1.99.0 以及 Maven3.9.9/Surefire3.5.2、Gradle8.14.3/JUnit4.13.2 夹具（[原生矩阵](fixtures/junit/matrix/README.md)）；任务2.1待独立复核。Vitest/Jest、Playwright、覆盖/变异工具、MCP 与 CI 集成须随后逐项验收。仓库没有已验证的外部历史插件，其兼容性仅为待验证目标。
 
 ## 当前本地 CLI
 

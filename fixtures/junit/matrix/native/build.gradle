@@ -1,0 +1,18 @@
+plugins { id 'java' }
+repositories { maven { url = uri(System.getenv('TESTGUARD_MAVEN_REPOSITORY')) } }
+dependencies { testImplementation 'junit:junit:4.13.2' }
+tasks.withType(JavaCompile).configureEach { options.release = 17 }
+test {
+    useJUnit()
+    maxHeapSize = '128m'
+    jvmArgs '-XX:ActiveProcessorCount=2'
+    maxParallelForks = 1
+    filter { failOnNoMatchingTests = false }
+    reports { junitXml.required = true; html.required = false }
+    testLogging { showStandardStreams = true }
+    afterSuite { descriptor, result ->
+        if (descriptor.parent == null) {
+            println "TG_NATIVE_COUNTS tests=${result.testCount} failures=${result.failedTestCount} skipped=${result.skippedTestCount} successful=${result.successfulTestCount}"
+        }
+    }
+}

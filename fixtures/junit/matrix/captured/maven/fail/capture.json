@@ -1,0 +1,71 @@
+{
+  "exit_code": 1,
+  "termination": null,
+  "testcase_ready": false,
+  "wall_seconds": 2.971,
+  "cleanup_complete": true,
+  "owned_pids": [
+    1358233
+  ],
+  "output_limit_per_pipe": 2097152,
+  "tool": "maven",
+  "scenario": "fail",
+  "command": [
+    "/workspace/guard-toolchain/maven/apache-maven-3.9.9/bin/mvn",
+    "-B",
+    "-o",
+    "-s",
+    "/workspace/guard-implementation-ledger/tg-junit-iag9h4xf/settings.xml",
+    "-gs",
+    "/workspace/guard-implementation-ledger/tg-junit-iag9h4xf/settings.xml",
+    "-f",
+    "/workspace/guard-implementation-ledger/tg-junit-iag9h4xf/pom.xml",
+    "-Dmaven.repo.local=/workspace/guard-toolchain/maven/repository",
+    "-Dtest=CasesTest#fail",
+    "-Dsurefire.failIfNoSpecifiedTests=false",
+    "test"
+  ],
+  "cwd": "/workspace/guard-implementation-ledger/tg-junit-iag9h4xf",
+  "report_path": "/workspace/guard-implementation-ledger/tg-junit-iag9h4xf/target/surefire-reports/TEST-CasesTest.xml",
+  "fresh_report_root": true,
+  "fault_injection": null,
+  "partial_scope": false,
+  "native_xml": {
+    "suite": "CasesTest",
+    "counts": {
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "cases": [
+      {
+        "class": "CasesTest",
+        "name": "fail",
+        "status": "failure"
+      }
+    ]
+  },
+  "profile": {
+    "tool": "maven-surefire",
+    "version": "3.5.2",
+    "protocol": "junit-xml-v1"
+  },
+  "junit_version": "4.13.2",
+  "required_baseline_methods": [
+    "CasesTest.passA",
+    "CasesTest.passB"
+  ],
+  "sha256": {
+    "report.raw.xml": "d5310097f8fb264cf6ee9b00c11649bc83bfeb965e4ab84d1ffda80d3b78b071",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "d5310097f8fb264cf6ee9b00c11649bc83bfeb965e4ab84d1ffda80d3b78b071",
+    "stdout.raw": "018bcf0fc2e9198e14fd093018a03725dcb88027fbfaacced0674279ddf2dcd2"
+  },
+  "native_console_counts": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  }
+}

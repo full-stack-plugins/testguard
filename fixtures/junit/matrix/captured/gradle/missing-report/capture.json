@@ -1,0 +1,75 @@
+{
+  "exit_code": 0,
+  "termination": null,
+  "testcase_ready": false,
+  "wall_seconds": 6.813,
+  "cleanup_complete": true,
+  "owned_pids": [
+    1359769,
+    1359805,
+    1359883
+  ],
+  "output_limit_per_pipe": 2097152,
+  "tool": "gradle",
+  "scenario": "missing-report",
+  "command": [
+    "/workspace/guard-toolchain/gradle/gradle-8.14.3/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "--console=plain",
+    "--project-dir",
+    "/workspace/guard-implementation-ledger/tg-junit-viax5h1x",
+    "test",
+    "--tests",
+    "CasesTest.pass*"
+  ],
+  "cwd": "/workspace/guard-implementation-ledger/tg-junit-viax5h1x",
+  "report_path": "/workspace/guard-implementation-ledger/tg-junit-viax5h1x/build/test-results/test/TEST-CasesTest.xml",
+  "fresh_report_root": true,
+  "fault_injection": "consumer-side removal AFTER real successful native execution; raw XML preserved",
+  "partial_scope": false,
+  "native_xml": {
+    "suite": "CasesTest",
+    "counts": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "cases": [
+      {
+        "class": "CasesTest",
+        "name": "passA",
+        "status": "pass"
+      },
+      {
+        "class": "CasesTest",
+        "name": "passB",
+        "status": "pass"
+      }
+    ]
+  },
+  "profile": {
+    "tool": "gradle",
+    "version": "8.14.3",
+    "protocol": "junit-xml-v1"
+  },
+  "junit_version": "4.13.2",
+  "required_baseline_methods": [
+    "CasesTest.passA",
+    "CasesTest.passB"
+  ],
+  "sha256": {
+    "report.raw.xml": "6175cb765002173c11bb69bae8818c17107a67530d96c61713912aec9d167300",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.raw": "8bcdd2f1f5cd30a1cabc3e45511a93c5cdaec589897a66df13e4382c90c101b1"
+  },
+  "native_console_counts": {
+    "tests": 2,
+    "failures": 0,
+    "skipped": 0,
+    "successful": 2
+  }
+}

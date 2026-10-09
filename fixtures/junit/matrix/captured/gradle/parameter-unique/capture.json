@@ -1,0 +1,75 @@
+{
+  "exit_code": 0,
+  "termination": null,
+  "testcase_ready": false,
+  "wall_seconds": 7.214,
+  "cleanup_complete": true,
+  "owned_pids": [
+    1360108,
+    1360144,
+    1360197
+  ],
+  "output_limit_per_pipe": 2097152,
+  "tool": "gradle",
+  "scenario": "parameter-unique",
+  "command": [
+    "/workspace/guard-toolchain/gradle/gradle-8.14.3/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "--console=plain",
+    "--project-dir",
+    "/workspace/guard-implementation-ledger/tg-junit-t1sudfst",
+    "test",
+    "--tests",
+    "UniqueParametersTest"
+  ],
+  "cwd": "/workspace/guard-implementation-ledger/tg-junit-t1sudfst",
+  "report_path": "/workspace/guard-implementation-ledger/tg-junit-t1sudfst/build/test-results/test/TEST-UniqueParametersTest.xml",
+  "fresh_report_root": true,
+  "fault_injection": null,
+  "partial_scope": false,
+  "native_xml": {
+    "suite": "UniqueParametersTest",
+    "counts": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "cases": [
+      {
+        "class": "UniqueParametersTest",
+        "name": "check[0:same]",
+        "status": "pass"
+      },
+      {
+        "class": "UniqueParametersTest",
+        "name": "check[1:same]",
+        "status": "pass"
+      }
+    ]
+  },
+  "profile": {
+    "tool": "gradle",
+    "version": "8.14.3",
+    "protocol": "junit-xml-v1"
+  },
+  "junit_version": "4.13.2",
+  "required_baseline_methods": [
+    "CasesTest.passA",
+    "CasesTest.passB"
+  ],
+  "sha256": {
+    "report.raw.xml": "ee57e3966877f23d9a5a8a6d053442fb21aa542efc49177267e98ccc5c15c394",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "ee57e3966877f23d9a5a8a6d053442fb21aa542efc49177267e98ccc5c15c394",
+    "stdout.raw": "8bcdd2f1f5cd30a1cabc3e45511a93c5cdaec589897a66df13e4382c90c101b1"
+  },
+  "native_console_counts": {
+    "tests": 2,
+    "failures": 0,
+    "skipped": 0,
+    "successful": 2
+  }
+}

@@ -115,3 +115,7 @@ Verification at GE siblingdcfd1976da781fc6ad8c74ed51530786a40d9648:97/97 locked 
 
 
 Task3.4 independently accepted at75fcfee for the explicit controller-owned local Linux storage profile:97tests+7independentprobes, Clippy and real strace verification. Review `/workspace/guard-implementation-ledger/testguard-evidence-store-independent-review.md`. Accepted count13/30; real identity authentication and malicious same-uid isolation remain out of scope. Task2.1 native Maven/Gradle JUnit matrix is in progress and not yet accepted.
+
+## Pinned Maven/Gradle JUnit matrix (task2.1 pending independent review)
+
+The earlier Maven-only status is historical. `fixtures/junit/matrix/README.md` now records20 actual runs on Maven3.9.9/Surefire3.5.2 and Gradle8.14.3 with JUnit4.13.2/Java21. Original stdout/stderr/XML and source/tool hashes are preserved. Missing-report and malformed inputs are explicitly consumer-side postprocessing, not native emitter claims. Unique and colliding parameter names come from actual framework execution. Frozen two-obligation coverage remains1/2 after partial execution. Only the exact Gradle profile is added; arbitrary versions/dialects and main `run` remain unavailable. Accepted task count remains13/30 pending independent review.

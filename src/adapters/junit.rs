@@ -3,14 +3,14 @@ use crate::{
     obligation::{require, unique},
     report::{CaseObservation, CaseStatus, normalize::canonical_digest},
 };
-/// Experimental Surefire 3.5.2 XML reader. Gradle and arbitrary JUnit dialects are unsupported.
+/// Experimental Surefire 3.5.2 / Gradle 8.14.3 JUnit 4 XML reader. Other dialects are unsupported.
 pub fn parse(
     raw: &RawArtifactSet,
     profile: &ExecutorProfile,
 ) -> Result<Vec<CaseObservation>, String> {
     let mut budget = super::limits::ObservationBudget::new(raw, profile)?;
     require(
-        profile.tool == "maven-surefire"
+        matches!(profile.tool.as_str(), "maven-surefire" | "gradle")
             && crate::supports_profile(&profile.tool, &profile.version, &profile.protocol),
         "unsupported JUnit profile",
     )?;

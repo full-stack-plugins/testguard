@@ -1,0 +1,75 @@
+{
+  "exit_code": 0,
+  "termination": null,
+  "testcase_ready": false,
+  "wall_seconds": 6.858,
+  "cleanup_complete": true,
+  "owned_pids": [
+    1360234,
+    1360270,
+    1360323
+  ],
+  "output_limit_per_pipe": 2097152,
+  "tool": "gradle",
+  "scenario": "parameter-collision",
+  "command": [
+    "/workspace/guard-toolchain/gradle/gradle-8.14.3/bin/gradle",
+    "--offline",
+    "--no-daemon",
+    "--max-workers=1",
+    "--console=plain",
+    "--project-dir",
+    "/workspace/guard-implementation-ledger/tg-junit-g_9tlop9",
+    "test",
+    "--tests",
+    "CollidingParametersTest"
+  ],
+  "cwd": "/workspace/guard-implementation-ledger/tg-junit-g_9tlop9",
+  "report_path": "/workspace/guard-implementation-ledger/tg-junit-g_9tlop9/build/test-results/test/TEST-CollidingParametersTest.xml",
+  "fresh_report_root": true,
+  "fault_injection": null,
+  "partial_scope": false,
+  "native_xml": {
+    "suite": "CollidingParametersTest",
+    "counts": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "cases": [
+      {
+        "class": "CollidingParametersTest",
+        "name": "check[same]",
+        "status": "pass"
+      },
+      {
+        "class": "CollidingParametersTest",
+        "name": "check[same]",
+        "status": "pass"
+      }
+    ]
+  },
+  "profile": {
+    "tool": "gradle",
+    "version": "8.14.3",
+    "protocol": "junit-xml-v1"
+  },
+  "junit_version": "4.13.2",
+  "required_baseline_methods": [
+    "CasesTest.passA",
+    "CasesTest.passB"
+  ],
+  "sha256": {
+    "report.raw.xml": "177eced617b2dfc2eea5ef5f8183d9a19c227a77e85e61c6b15dfee3bff50dc2",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "177eced617b2dfc2eea5ef5f8183d9a19c227a77e85e61c6b15dfee3bff50dc2",
+    "stdout.raw": "8bcdd2f1f5cd30a1cabc3e45511a93c5cdaec589897a66df13e4382c90c101b1"
+  },
+  "native_console_counts": {
+    "tests": 2,
+    "failures": 0,
+    "skipped": 0,
+    "successful": 2
+  }
+}
