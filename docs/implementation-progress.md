@@ -133,3 +133,7 @@ Task1.4 accepted at9457f04:104 maintained tests and3 independent edge probes pas
 ## Independently accepted diagnostic retry history:16/30
 
 Task3.5 accepted at4b0404c for the controller-owned Linux local profile. Independent107 tests plus8-round exact limit/ninth rejection/poison persistence/raw preservation probes pass. Mixed failure history remains BLOCK; no fresh consume bypass for expired or deleted artifacts. The session remains in-memory and is not scheduler restart recovery or automatic native execution. Evidence: cloud ledger testguard-retry-independent-review.md.
+
+## Independently accepted bounded trace queries:17/30
+
+Task2.6 accepted at3bcbbb24. Independent110 maintained tests+4 probes with GE6527e2a verify whole-obligation reverse semantics, known-empty N/A, cross-requirement shared obligation without double counting, and3MB revision expansion rejected before cloned output. Review does not include concurrent protected importer changes or newer dependency qualification. Evidence: cloud ledger testguard-trace-independent-review.md.

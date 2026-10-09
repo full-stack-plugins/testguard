@@ -4,7 +4,7 @@
 
 **TestGuard 旨在验证被要求的行为是否实际接受了测试，而不只是测试命令返回零。**
 
-> **状态：已有实验性本地 Rust 实现。** 当前树包含源码、Cargo 清单、测试、原生报告夹具及可执行 CLI；已独立验收 16/30 项任务。历史检查基线 `b4e8ed05b985f6233d671c76f1132aaa4d99a507` 当时仅含文档，不能代表当前树。下述端到端隔离执行与可信生产集成仍是目标，非已交付能力。详见[实施记录](docs/implementation-progress.md)与[实际 CLI 契约](docs/local-cli.md)。
+> **状态：已有实验性本地 Rust 实现。** 当前树包含源码、Cargo 清单、测试、原生报告夹具及可执行 CLI；已独立验收 17/30 项任务。历史检查基线 `b4e8ed05b985f6233d671c76f1132aaa4d99a507` 当时仅含文档，不能代表当前树。下述端到端隔离执行与可信生产集成仍是目标，非已交付能力。详见[实施记录](docs/implementation-progress.md)与[实际 CLI 契约](docs/local-cli.md)。
 
 ## 目标流程
 
@@ -70,4 +70,4 @@ T0–T4 从版本化模型和缺工具诊断，依次交付真实 JUnit/Cargo �
 
 ## OpenSpec 实施待办
 
-新增增量 [proposal](openspec/changes/add-test-obligation-evidence-pipeline/proposal.md)、[design](openspec/changes/add-test-obligation-evidence-pipeline/design.md)、[规范](openspec/changes/add-test-obligation-evidence-pipeline/specs/) 与 [tasks](openspec/changes/add-test-obligation-evidence-pipeline/tasks.md)，将架构方案拆成待实施工作。参阅[跨仓依赖路线图](openspec/guard-roadmap.md)与[结构验证记录](openspec/validation-2026-10-09.md)。任务表目前记录 16/30 项独立接受；新实现只在独立复核通过后勾选。历史源码清单和结构校验记录只描述当时基线。当前可执行能力、测试证据与剩余限制以实施记录和各 profile 文档为准；结构校验不等于运行时验收。
+新增增量 [proposal](openspec/changes/add-test-obligation-evidence-pipeline/proposal.md)、[design](openspec/changes/add-test-obligation-evidence-pipeline/design.md)、[规范](openspec/changes/add-test-obligation-evidence-pipeline/specs/) 与 [tasks](openspec/changes/add-test-obligation-evidence-pipeline/tasks.md)，将架构方案拆成待实施工作。参阅[跨仓依赖路线图](openspec/guard-roadmap.md)与[结构验证记录](openspec/validation-2026-10-09.md)。任务表目前记录 17/30 项独立接受；新实现只在独立复核通过后勾选。历史源码清单和结构校验记录只描述当时基线。当前可执行能力、测试证据与剩余限制以实施记录和各 profile 文档为准；结构校验不等于运行时验收。
