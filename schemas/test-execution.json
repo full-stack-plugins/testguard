@@ -6,17 +6,23 @@
       "additionalProperties": false,
       "properties": {
         "digest": {
+          "pattern": "^[0-9a-f]{64}$",
           "type": "string"
         },
         "media_type": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^[ -~]+$",
           "type": "string"
         },
         "size": {
           "format": "uint64",
+          "maximum": 16777216.0,
           "minimum": 0.0,
           "type": "integer"
         },
         "uri": {
+          "maxLength": 524,
           "type": "string"
         }
       },
