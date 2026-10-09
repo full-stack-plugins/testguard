@@ -1,0 +1,152 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+      "test",
+      "--config",
+      "/workspace/testguard-playwright-oesqssa8/playwright.config.cjs",
+      "--pass-with-no-tests"
+    ],
+    "configFile": "/workspace/testguard-playwright-oesqssa8/playwright.config.cjs",
+    "rootDir": "/workspace/testguard-playwright-oesqssa8",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/testguard-playwright-oesqssa8/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "system-chromium",
+        "name": "system-chromium",
+        "testDir": "/workspace/testguard-playwright-oesqssa8",
+        "testIgnore": [],
+        "testMatch": [
+          "cases.spec.cjs"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/testguard-playwright-oesqssa8/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cases.spec.cjs",
+      "file": "cases.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "failing assertion",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "system-chromium",
+              "projectName": "system-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 354,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at /workspace/testguard-playwright-oesqssa8/cases.spec.cjs:14:92",
+                    "location": {
+                      "file": "/workspace/testguard-playwright-oesqssa8/cases.spec.cjs",
+                      "column": 92,
+                      "line": 14
+                    },
+                    "snippet": "  12 |  if(scenario==='partial') test('second case',realPage);\n  13 | } else if(scenario==='fail') {\n> 14 |  test('failing assertion',async({page,browser})=>{await realPage({page,browser});expect(1).toBe(2);});\n     |                                                                                            ^\n  15 | } else if(scenario==='skip') {\n  16 |  test.skip('explicit skip',realPage);\n  17 | } else if(['timeout','hard-timeout'].includes(scenario)) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/testguard-playwright-oesqssa8/cases.spec.cjs",
+                        "column": 92,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n\n  12 |  if(scenario==='partial') test('second case',realPage);\n  13 | } else if(scenario==='fail') {\n> 14 |  test('failing assertion',async({page,browser})=>{await realPage({page,browser});expect(1).toBe(2);});\n     |                                                                                            ^\n  15 | } else if(scenario==='skip') {\n  16 |  test.skip('explicit skip',realPage);\n  17 | } else if(['timeout','hard-timeout'].includes(scenario)) {\n    at /workspace/testguard-playwright-oesqssa8/cases.spec.cjs:14:92"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-09T12:25:37.499Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/testguard-playwright-oesqssa8/test-results/cases-failing-assertion-system-chromium/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/testguard-playwright-oesqssa8/cases.spec.cjs",
+                    "column": 92,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9be010ff1ae8b840136d-69009e4afc7b21fc233c",
+          "file": "cases.spec.cjs",
+          "line": 14,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T12:25:37.097Z",
+    "duration": 1453.204,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

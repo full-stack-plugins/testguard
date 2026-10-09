@@ -1,0 +1,18 @@
+{
+  "profile": "local fixed fixture; no OS sandbox or production authority",
+  "node": "v24.19.0",
+  "playwright": "1.62.1",
+  "chromium": "Chromium 151.0.7922.173 built on Debian GNU/Linux 13 (trixie)",
+  "tool_sha256": {
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json": "ca170ec143a88ed3043ac953eb3b2377b2b97304104f4e1e23316684ce2c35af",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js": "5e79302a6aad7d835d92d5ae6b4244c91cf61b28e94d7917279090e6c231f7a1",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/lib/program.js": "d453e49272d33d592cac3c55e06536e5451bec135fa8d80d6b134fd5e072c88b",
+    "/usr/lib/chromium/chromium": "d387400aaf740ccb75e5e996a34aa0940e6e97683a4eabd6ae34c1eed6804723"
+  },
+  "source_sha256": {
+    "cases.spec.cjs": "34ed7938b84aa912762b1e0d3512a26c3f6b868079a3164199ee02594ebb6a62",
+    "playwright.config.cjs": "1c3d34980a3705695f5d31adefb984803ac7eccd6a3dd9a1c6c43447d918cfeb"
+  },
+  "capture_script_sha256": "0cb73597d7e091c60dac52902a2e54d0c338e8138cc6972024f1992acf1c2067"
+}

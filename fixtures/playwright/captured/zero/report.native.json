@@ -1,0 +1,79 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+      "test",
+      "--config",
+      "/workspace/testguard-playwright-vcfv50im/playwright.config.cjs",
+      "--pass-with-no-tests"
+    ],
+    "configFile": "/workspace/testguard-playwright-vcfv50im/playwright.config.cjs",
+    "rootDir": "/workspace/testguard-playwright-vcfv50im",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 0
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/testguard-playwright-vcfv50im/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 0
+        },
+        "id": "system-chromium",
+        "name": "system-chromium",
+        "testDir": "/workspace/testguard-playwright-vcfv50im",
+        "testIgnore": [],
+        "testMatch": [
+          "cases.spec.cjs"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/testguard-playwright-vcfv50im/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T12:25:41.883Z",
+    "duration": 47.56299999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

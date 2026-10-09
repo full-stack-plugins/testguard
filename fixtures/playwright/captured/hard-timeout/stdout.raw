@@ -1,0 +1,5 @@
+
+Running 2 tests using 1 worker
+
+[1/2] [system-chromium] › cases.spec.cjs:18:2 › first case
+[2/2] [system-chromium] › cases.spec.cjs:19:2 › hanging case

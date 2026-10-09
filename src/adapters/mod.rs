@@ -24,3 +24,5 @@ pub struct RawArtifactSet {
 }
 
 pub mod junit;
+
+pub mod playwright;

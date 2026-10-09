@@ -1,0 +1,4 @@
+Listing tests:
+  [system-chromium] › cases.spec.cjs:11:2 › first case
+  [system-chromium] › cases.spec.cjs:12:27 › second case
+Total: 2 tests in 1 file

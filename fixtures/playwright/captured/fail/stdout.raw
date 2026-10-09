@@ -1,0 +1,25 @@
+
+Running 1 test using 1 worker
+
+[1/1] [system-chromium] › cases.spec.cjs:14:2 › failing assertion
+  1) [system-chromium] › cases.spec.cjs:14:2 › failing assertion ───────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 1
+
+      12 |  if(scenario==='partial') test('second case',realPage);
+      13 | } else if(scenario==='fail') {
+    > 14 |  test('failing assertion',async({page,browser})=>{await realPage({page,browser});expect(1).toBe(2);});
+         |                                                                                            ^
+      15 | } else if(scenario==='skip') {
+      16 |  test.skip('explicit skip',realPage);
+      17 | } else if(['timeout','hard-timeout'].includes(scenario)) {
+        at /workspace/testguard-playwright-oesqssa8/cases.spec.cjs:14:92
+
+    Error Context: test-results/cases-failing-assertion-system-chromium/error-context.md
+
+
+  1 failed
+    [system-chromium] › cases.spec.cjs:14:2 › failing assertion ────────────────────────────────────

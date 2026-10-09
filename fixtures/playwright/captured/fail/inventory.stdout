@@ -1,0 +1,3 @@
+Listing tests:
+  [system-chromium] › cases.spec.cjs:14:2 › failing assertion
+Total: 1 test in 1 file

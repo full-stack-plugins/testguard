@@ -1,0 +1,7 @@
+
+Running 1 test using 1 worker
+
+[1/1] [system-chromium] › cases.spec.cjs:11:2 › first case
+  1 passed (1.3s)
+Error: EEXIST: file already exists, mkdir '/workspace/testguard-playwright-yxmmqrn0/blocked'
+

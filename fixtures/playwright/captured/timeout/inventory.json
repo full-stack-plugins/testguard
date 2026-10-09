@@ -1,0 +1,125 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+      "test",
+      "--config",
+      "/workspace/testguard-playwright-dq1tp2bn/playwright.config.cjs",
+      "--pass-with-no-tests",
+      "--list"
+    ],
+    "configFile": "/workspace/testguard-playwright-dq1tp2bn/playwright.config.cjs",
+    "rootDir": "/workspace/testguard-playwright-dq1tp2bn",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/testguard-playwright-dq1tp2bn/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "system-chromium",
+        "name": "system-chromium",
+        "testDir": "/workspace/testguard-playwright-dq1tp2bn",
+        "testIgnore": [],
+        "testMatch": [
+          "cases.spec.cjs"
+        ],
+        "timeout": 1500
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/testguard-playwright-dq1tp2bn/inventory.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cases.spec.cjs",
+      "file": "cases.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "first case",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1500,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "system-chromium",
+              "projectName": "system-chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9be010ff1ae8b840136d-ee210d7da6d22a23196b",
+          "file": "cases.spec.cjs",
+          "line": 18,
+          "column": 2
+        },
+        {
+          "title": "hanging case",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1500,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "system-chromium",
+              "projectName": "system-chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9be010ff1ae8b840136d-edae26c6b4c343150803",
+          "file": "cases.spec.cjs",
+          "line": 19,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T12:25:46.044Z",
+    "duration": 62.54399999999998,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

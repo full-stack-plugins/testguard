@@ -4,6 +4,7 @@ pub fn supports_profile(tool: &str, version: &str, protocol: &str) -> bool {
         ("cargo", "1.99.0", "libtest-pretty-v1")
             | ("maven-surefire", "3.5.2", "junit-xml-v1")
             | ("gradle", "8.14.3", "junit-xml-v1")
+            | ("playwright", "1.62.1", "playwright-json-v1.62.1")
     )
 }
 

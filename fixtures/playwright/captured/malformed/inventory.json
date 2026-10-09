@@ -1,0 +1,105 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+      "test",
+      "--config",
+      "/workspace/testguard-playwright-a3fzhytl/playwright.config.cjs",
+      "--pass-with-no-tests",
+      "--list"
+    ],
+    "configFile": "/workspace/testguard-playwright-a3fzhytl/playwright.config.cjs",
+    "rootDir": "/workspace/testguard-playwright-a3fzhytl",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/testguard-playwright-a3fzhytl/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "system-chromium",
+        "name": "system-chromium",
+        "testDir": "/workspace/testguard-playwright-a3fzhytl",
+        "testIgnore": [],
+        "testMatch": [
+          "cases.spec.cjs"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/testguard-playwright-a3fzhytl/inventory.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cases.spec.cjs",
+      "file": "cases.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "first case",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "system-chromium",
+              "projectName": "system-chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9be010ff1ae8b840136d-ee210d7da6d22a23196b",
+          "file": "cases.spec.cjs",
+          "line": 11,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T12:25:53.555Z",
+    "duration": 50.596000000000004,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,11 @@
+Error: duplicate test title "duplicate parameter title", first declared in cases.spec.cjs:21
+
+   at cases.spec.cjs:21
+
+  19 |  test('hanging case',async({page,browser})=>{await realPage({page,browser});fs.writeFileSync(process.env.TESTGUARD_STARTED,'started');await new Promise(()=>{});});
+  20 | } else if(scenario==='collision') {
+> 21 |  for(const p of [1,2]) test('duplicate parameter title',async()=>{expect(p).toBeGreaterThan(0);});
+     |                        ^
+  22 | }
+  23 |
+

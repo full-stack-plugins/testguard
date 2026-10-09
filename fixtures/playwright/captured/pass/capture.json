@@ -1,0 +1,57 @@
+{
+  "exit_code": 0,
+  "interrupted": false,
+  "reason": null,
+  "body_started": false,
+  "adopted_children_reaped": 4,
+  "framework": "playwright",
+  "version": "1.62.1",
+  "protocol": "playwright-json-v1.62.1",
+  "browser": "system Chromium151.0.7922.173",
+  "project": "system-chromium",
+  "native_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+    "test",
+    "--config",
+    "/workspace/testguard-playwright-3p6_s898/playwright.config.cjs",
+    "--pass-with-no-tests"
+  ],
+  "native_cwd": "/workspace/testguard-playwright-3p6_s898",
+  "native_environment": {
+    "PATH": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/usr/bin:/bin",
+    "HOME": "/workspace/testguard-playwright-3p6_s898",
+    "TMPDIR": "/workspace/testguard-playwright-3p6_s898",
+    "TZ": "UTC",
+    "CI": "1",
+    "FORCE_COLOR": "0",
+    "TESTGUARD_PLAYWRIGHT_PACKAGE": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright",
+    "TESTGUARD_SCENARIO": "pass",
+    "TESTGUARD_STARTED": "/workspace/testguard-playwright-3p6_s898/started",
+    "TESTGUARD_REPORT": "/workspace/testguard-playwright-3p6_s898/report.json"
+  },
+  "discovery_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/cli.js",
+    "test",
+    "--config",
+    "/workspace/testguard-playwright-3p6_s898/playwright.config.cjs",
+    "--pass-with-no-tests",
+    "--list"
+  ],
+  "discovery": {
+    "exit_code": 0,
+    "interrupted": false,
+    "reason": null,
+    "body_started": false,
+    "adopted_children_reaped": 0
+  },
+  "collector_fault": null,
+  "sha256": {
+    "inventory.json": "4b6e480ecdfe80b09119798e185753236f2a311fd50e9395e35a5bad736c5dd7",
+    "report.native.json": "a8b531a4a48eaf783277b011ef4fdbae6035f491a3398805f9ccb6ba7fe5f7b0",
+    "report.input.json": "a8b531a4a48eaf783277b011ef4fdbae6035f491a3398805f9ccb6ba7fe5f7b0",
+    "stdout.raw": "8890cc59e680f2b08e779d27fd8f362c848f46c53adc21b978751c56c1361d3a",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
