@@ -1,0 +1,37 @@
+{
+  "tool_version": "cargo 1.99.0 (5f94df478 2026-08-27)",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "/workspace/guard-implementation/testguard/fixtures/cargo/native/Cargo.toml",
+    "--lib",
+    "cases::timeout",
+    "--",
+    "--format",
+    "pretty",
+    "--test-threads=1"
+  ],
+  "inventory_command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "/workspace/guard-implementation/testguard/fixtures/cargo/native/Cargo.toml",
+    "--lib",
+    "cases::timeout",
+    "--",
+    "--list",
+    "--format",
+    "terse"
+  ],
+  "exit_code": -9,
+  "timed_out": true,
+  "fault_injection": null,
+  "partial_scope": false,
+  "sha256": {
+    "stdout.raw": "3c5c2cc053340390e2dbf42277a2a803ae23fd91e5a977e25546b3f39f728a03",
+    "stderr.raw": "412ed5bcdde43b612f5e485dafc784568f31b082bbadb31a232979b2ca100d1d",
+    "inventory.raw": "d52d53d5681301fdd69071ae5b59d926c1732f2737637b3d7f8edb670990fad3",
+    "report.input": "3c5c2cc053340390e2dbf42277a2a803ae23fd91e5a977e25546b3f39f728a03"
+  }
+}

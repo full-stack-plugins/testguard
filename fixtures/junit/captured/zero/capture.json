@@ -1,0 +1,26 @@
+{
+  "tool_version": "Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)\nMaven home: /workspace/guard-toolchain/maven/apache-maven-3.9.9\nJava version: 21.0.12.1, vendor: Debian, runtime: /usr/lib/jvm/java-21-openjdk-amd64\nDefault locale: en, platform encoding: UTF-8\nOS name: \"linux\", version: \"6.18.44\", arch: \"amd64\", family: \"unix\"\n",
+  "surefire_version": "3.5.2",
+  "junit_version": "4.13.2",
+  "command": [
+    "/workspace/guard-toolchain/maven/apache-maven-3.9.9/bin/mvn",
+    "-B",
+    "-o",
+    "-f",
+    "/workspace/guard-implementation/testguard/fixtures/junit/native/pom.xml",
+    "-Dmaven.repo.local=/workspace/guard-toolchain/maven/repository",
+    "-Dtest=NoSuchTest",
+    "-Dsurefire.failIfNoSpecifiedTests=false",
+    "test"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "fault_injection": null,
+  "partial_scope": false,
+  "sha256": {
+    "stdout.raw": "556e30389710a5aa3b09a601fc610b99c5a971c011baac51f9effa9854d806fa",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.raw.xml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "report.input.xml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

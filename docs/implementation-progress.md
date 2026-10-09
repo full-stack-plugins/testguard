@@ -22,3 +22,23 @@ Ruling: Cargo 1.99.0 stable pretty libtest text, with separately captured invent
 |2.6|bidirectional local source/obligation/test/attempt/artifact trace|SG production references unavailable|
 
 Pre-flight interfaces: obligation→plan→coverage: required instances copied from validated source; observations cannot replace them. Adapter→coverage: observations must retain attempt/environment/target/native identity; only finished pass counts. Local binding separate from GE wire. No task checkboxes changed before root review.
+
+## Slice 1 implementation result (pending root review)
+
+- 1.1–1.4: local bootstrap, strict typed domain contracts + five Draft-7 schemas, execution/coverage/finding records and deterministic restricted artifact normalization implemented. Cross-document semantic checks run in Rust, not JSON Schema alone.
+- 1.5: local CLI check/verify/plan/coverage/doctor implemented with 0/2/3/4 and output separation; run safely unavailable pending group3 sandbox, so full execution interface remains partial.
+- 1.6: Linux PATH executable presence/permission checks for Cargo and Maven implemented; both installed/missing fixture environments are generated and scripts are never invoked. Version execution/ACL/production permission checks are not claimed.
+- 2.1: Surefire3.5.2/Maven3.9.9/JUnit4.13.2 real matrix captured. Gradle remains unsupported; missing XML on timeout is rejected rather than recovering unknown case inventory. Partial full-task acceptance.
+- 2.2: Cargo1.99.0 stable pretty parser and eight-category native/fault matrix, real feature-scoped target, unknown version and incomplete timeout cases implemented. Missing/malformed are labelled post-capture faults; these are not sandbox/trusted-runner evidence.
+- 2.3: artifact digest/attempt reference, native identity + target/features/parameters/environment, duplicate/count/exit contradiction validation implemented locally. Authenticated collection receipts remain group3/4 work.
+- 2.4: six-instance frozen matrix and actual SG fixture import implemented. Production SG/GE capability rejected; execution argv/budgets/artifact requirements not yet frozen. Partial.
+- 2.5: separate execution/obligation/statement/branch denominators, N/A reasons, missing/extra pass behavior and explicit known weakening comparison implemented. Local source metric inputs and baseline snapshots are not authenticated.
+- 2.6: local bidirectional-queryable trace entries preserve both requirement scopes, immutable revision/reference, test/environment/attempt/artifact; original SG source metadata preserved with imported fixture. Production trace authorization and unified finding linkage remain partial.
+
+Observed RED→GREEN logs live under `/workspace/guard-implementation-ledger/tg-*.log`; detailed per-task evidence is in `testguard-slice1-report.md`. Main complete suite: 54 tests, no failures; schemas: 5 checked, 1 valid/8 invalid shape vectors; strict OpenSpec: valid/no issues. Full-task checkboxes stay unchecked for independent root review.
+
+Ruling: Maven compiler fixture uses source/target17 rather than --release17 because the installed constrained Java runtime rejects release profiles; the real capture records Java21.0.12.1. Cost if wrong: repeat native corpus on a full JDK; no production portability claim.
+Ruling: missing/malformed corpus cases mutate or remove artifacts after genuine native runs, preserving raw output and recording the transform. Native frameworks do not deliberately emit malformed reports; fault provenance must not be disguised. Cost if wrong: rerun additional fault mechanisms during runner validation.
+Ruling: SpecGuard producer's actual fixture export can be consumed now under local-fixture only; production profile rejects until controller authority/GE contracts are integrated. Cost if wrong: update importer and pinned compatibility corpus, not protected gates.
+
+Verification found and fixed: deserialized FrozenPlan bypass could reduce the instance matrix; assessment now revalidates it (RED→GREEN test). Unknown JUnit child status could silently look like pass; unsupported child elements now reject (RED→GREEN test). Cargo timeout's partial status line now remains unknown (real timeout RED→GREEN). Clippy found a collapsible conditional; refactored without suppressions.

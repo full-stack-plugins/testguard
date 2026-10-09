@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "Instance": {
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "type": "string"
+        },
+        "obligation_id": {
+          "type": "string"
+        },
+        "test_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "environment",
+        "obligation_id",
+        "test_id"
+      ],
+      "type": "object"
+    },
+    "Metric": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "numerator": {
+          "format": "uint",
+          "minimum": 0.0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "denominator",
+        "numerator"
+      ],
+      "type": "object"
+    },
+    "SourceMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "counts": {
+          "$ref": "#/definitions/Metric"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "counts",
+        "filter",
+        "kind",
+        "scope"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "execution": {
+      "$ref": "#/definitions/Metric"
+    },
+    "missing": {
+      "items": {
+        "$ref": "#/definitions/Instance"
+      },
+      "type": "array"
+    },
+    "not_applicable_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "obligations": {
+      "$ref": "#/definitions/Metric"
+    },
+    "schema_version": {
+      "const": "testguard.local/v1",
+      "type": "string"
+    },
+    "source_metrics": {
+      "items": {
+        "$ref": "#/definitions/SourceMetric"
+      },
+      "type": "array"
+    },
+    "unsatisfied": {
+      "items": {
+        "$ref": "#/definitions/Instance"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "execution",
+    "missing",
+    "not_applicable_reasons",
+    "obligations",
+    "schema_version",
+    "source_metrics",
+    "unsatisfied"
+  ],
+  "title": "CoverageEvidence",
+  "type": "object"
+}

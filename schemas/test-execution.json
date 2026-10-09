@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "size": {
+          "format": "uint64",
+          "minimum": 0.0,
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "digest",
+        "media_type",
+        "size",
+        "uri"
+      ],
+      "type": "object"
+    },
+    "CaseObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_uri": {
+          "type": "string"
+        },
+        "discovered": {
+          "type": "boolean"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "finished": {
+          "type": "boolean"
+        },
+        "native_id": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "started": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/definitions/CaseStatus"
+        },
+        "target": {
+          "type": "string"
+        },
+        "test_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_uri",
+        "discovered",
+        "environment",
+        "features",
+        "finished",
+        "native_id",
+        "parameters",
+        "started",
+        "status",
+        "target",
+        "test_id"
+      ],
+      "type": "object"
+    },
+    "CaseStatus": {
+      "enum": [
+        "pass",
+        "fail",
+        "skip",
+        "unknown"
+      ],
+      "type": "string"
+    }
+  },
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/definitions/ArtifactRef"
+      },
+      "type": "array"
+    },
+    "attempt_id": {
+      "type": "string"
+    },
+    "exit_code": {
+      "format": "int32",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "finished": {
+      "type": "boolean"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/definitions/CaseObservation"
+      },
+      "type": "array"
+    },
+    "plan_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "testguard.local/v1",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifacts",
+    "attempt_id",
+    "finished",
+    "observations",
+    "plan_digest",
+    "schema_version"
+  ],
+  "title": "AttemptRecord",
+  "type": "object"
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "Obligation": {
+      "additionalProperties": false,
+      "properties": {
+        "environments": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "test_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "environments",
+        "id",
+        "source_ids",
+        "test_id"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/definitions/SourceKind"
+        },
+        "requirement_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "requirement_id"
+      ],
+      "type": "object"
+    },
+    "SourceKind": {
+      "enum": [
+        "requirement",
+        "acceptance",
+        "invariant"
+      ],
+      "type": "string"
+    }
+  },
+  "properties": {
+    "approval_ref": {
+      "type": "string"
+    },
+    "baseline_digest": {
+      "type": "string"
+    },
+    "capability": {
+      "const": "local-fixture",
+      "type": "string"
+    },
+    "environments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "obligations": {
+      "items": {
+        "$ref": "#/definitions/Obligation"
+      },
+      "type": "array"
+    },
+    "requirements": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "testguard.local/v1",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/definitions/Source"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "approval_ref",
+    "baseline_digest",
+    "capability",
+    "environments",
+    "obligations",
+    "requirements",
+    "revision",
+    "schema_version",
+    "sources"
+  ],
+  "title": "ObligationSet",
+  "type": "object"
+}

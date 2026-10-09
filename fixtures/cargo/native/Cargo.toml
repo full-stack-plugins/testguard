@@ -1,0 +1,8 @@
+[package]
+name = "testguard-native-fixture"
+version = "0.0.0"
+edition = "2024"
+publish = false
+[features]
+extra = []
+[workspace]
