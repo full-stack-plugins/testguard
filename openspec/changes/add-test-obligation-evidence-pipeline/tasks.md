@@ -31,22 +31,22 @@
 
 输入：设计和专业 fixture；输出：版本化模型、CLI 合同与本地验证入口。本组不依赖外部仓库整体完成；集成字段仍等待 GE-CONTRACT。
 
-- [ ] 1.1 在拟议 `docs/decisions/testguard-bootstrap.md` 与 `Cargo.toml` 固定首版 Rust/依赖、Cargo 报告协议支持版本、JUnit identity 规则及单 crate 边界；用 `tests/bootstrap_profiles.rs` 验明示支持/拒绝版本各至少一例，未选版本不得进入支持清单。追踪 “Versioned test domain contracts”“Native adapter evidence fidelity”。
-- [ ] 1.2 在 `schemas/test-obligation.json`、`schemas/test-plan.json` 和 `src/obligation.rs` 定义 `ObligationSet`/`FrozenPlan`，输入批准来源引用、输出唯一 ID/环境及 binding；`tests/domain_schema.rs` 建至少 12 个正反例，覆盖未知字段/版本、重复 ID、悬空引用、缺环境/绑定。追踪 “Versioned test domain contracts”。
-- [ ] 1.3 在 `schemas/{test-execution,test-coverage,domain-finding}.json` 和 `src/report.rs` 定义 `AttemptRecord`、`CoverageEvidence`、`DomainFinding`，保留 native 身份和原始工件引用；`tests/domain_records.rs` 验 unknown/skip/fail 不转 pass、无结束记录不能通过。追踪 “Versioned test domain contracts”“Requirement and environment trace coverage”。
+- [x] 1.1 在拟议 `docs/decisions/testguard-bootstrap.md` 与 `Cargo.toml` 固定首版 Rust/依赖、Cargo 报告协议支持版本、JUnit identity 规则及单 crate 边界；用 `tests/bootstrap_profiles.rs` 验明示支持/拒绝版本各至少一例，未选版本不得进入支持清单。追踪 “Versioned test domain contracts”“Native adapter evidence fidelity”。
+- [x] 1.2 在 `schemas/test-obligation.json`、`schemas/test-plan.json` 和 `src/obligation.rs` 定义 `ObligationSet`/`FrozenPlan`，输入批准来源引用、输出唯一 ID/环境及 binding；`tests/domain_schema.rs` 建至少 12 个正反例，覆盖未知字段/版本、重复 ID、悬空引用、缺环境/绑定。追踪 “Versioned test domain contracts”。
+- [x] 1.3 在 `schemas/{test-execution,test-coverage,domain-finding}.json` 和 `src/report.rs` 定义 `AttemptRecord`、`CoverageEvidence`、`DomainFinding`，保留 native 身份和原始工件引用；`tests/domain_records.rs` 验 unknown/skip/fail 不转 pass、无结束记录不能通过。追踪 “Versioned test domain contracts”“Requirement and environment trace coverage”。
 - [ ] 1.4 在 `src/report/normalize.rs` 定义受限工件引用及归一化规则，区分专业元数据与集成 ref；`tests/normalization.rs` 对每个有效输入重复十次摘要一致，未知字段和摘要冲突拒绝。追踪 “Versioned test domain contracts”“Authenticated evidence audit and freshness”。
 - [ ] 1.5 在 `src/cli.rs` 固定 doctor/plan/run/check/verify/coverage 输入输出与退出合同，`tests/cli_contract.rs` 验 check 0/2/3/4、stdout/stderr 分离和其他命令已文档化语义；无 CLI 已存在假设。追踪 “Read-only and execution interface separation”。
-- [ ] 1.6 在 `src/doctor.rs` 实现只读工具/权限检测，`fixtures/doctor/` 为每个初始支持工具提供已装/未装两种环境；`tests/doctor.rs` 验无下载、无执行测试、无外部写入且诊断准确。追踪 “Read-only and execution interface separation”。
+- [x] 1.6 在 `src/doctor.rs` 实现只读工具/权限检测，`fixtures/doctor/` 为每个初始支持工具提供已装/未装两种环境；`tests/doctor.rs` 验无下载、无执行测试、无外部写入且诊断准确。追踪 “Read-only and execution interface separation”。
 
 ## 2. T1–T2 — 真实适配器与冻结追踪
 
 输入：T0 schema、固定工具和原生工件；输出：观察集合及冻结义务覆盖。2.1–2.3 可独立于外部 gate；2.4–2.6 的真实生产导出依赖 SG-BASELINE 与 GE-CONTRACT/ADAPTER，之前只能运行明确标识的本地 fixture。
 
 - [ ] 2.1 在 `src/adapters/junit.rs` 与 `fixtures/junit/` 采集 Maven/Gradle 真实报告/退出，`tests/junit_adapter.rs` 验八类 pass/fail/skip/zero/partial/timeout/missing-report/malformed 和参数化碰撞、旧文件，计数对照原生来源，0 false ALLOW。追踪 “Native adapter evidence fidelity”。
-- [ ] 2.2 在 `src/adapters/cargo.rs` 与 `fixtures/cargo/` 依 1.1 固定协议采集真实 Cargo 运行，`tests/cargo_adapter.rs` 重复八类矩阵并验 ignored/参数/target/features 范围及未知版本拒绝，不假设未验证 JSON 能力。追踪 “Native adapter evidence fidelity”。
-- [ ] 2.3 在 `src/adapters/mod.rs` 统一 `RawArtifactSet + ExecutorProfile → CaseObservation[]`，`tests/adapter_identity.rs` 验 native/stable ID、参数/环境消歧、重复与退出矛盾拒绝、仅接受本 attempt 工件。追踪 “Native adapter evidence fidelity”。
+- [x] 2.2 在 `src/adapters/cargo.rs` 与 `fixtures/cargo/` 依 1.1 固定协议采集真实 Cargo 运行，`tests/cargo_adapter.rs` 重复八类矩阵并验 ignored/参数/target/features 范围及未知版本拒绝，不假设未验证 JSON 能力。追踪 “Native adapter evidence fidelity”。
+- [x] 2.3 在 `src/adapters/mod.rs` 统一 `RawArtifactSet + ExecutorProfile → CaseObservation[]`，`tests/adapter_identity.rs` 验 native/stable ID、参数/环境消歧、重复与退出矛盾拒绝、仅接受本 attempt 工件。追踪 “Native adapter evidence fidelity”。
 - [ ] 2.4 在 `src/plan.rs` 消费 SG-BASELINE 的 `ObligationSet` 和不可变 binding/policy 生成 `FrozenPlan`，`tests/plan_freeze.rs` 用三义务×两环境逐个删除实例均留缺口，候选自改名单不能缩集合，未知导出 capability 拒绝。追踪 “Frozen approved obligation plan”“Requirement and environment trace coverage”。
-- [ ] 2.5 在 `src/coverage.rs` 与 `src/policy.rs` 计算义务/测试/环境矩阵和分开的执行/statement/branch 指标，`tests/coverage_matrix.rs` 验空分母 N/A、额外通过不抵缺失、行覆盖不抵需求；阈值/过滤/已知断言删减保留原分母并提出复核。追踪 “Requirement and environment trace coverage”“Baseline authority and weakening review”。
+- [x] 2.5 在 `src/coverage.rs` 与 `src/policy.rs` 计算义务/测试/环境矩阵和分开的执行/statement/branch 指标，`tests/coverage_matrix.rs` 验空分母 N/A、额外通过不抵缺失、行覆盖不抵需求；阈值/过滤/已知断言删减保留原分母并提出复核。追踪 “Requirement and environment trace coverage”“Baseline authority and weakening review”。
 - [ ] 2.6 在 `src/obligation/trace.rs` 输出 requirement/acceptance/invariant 双向证据链与覆盖查询，`tests/requirement_trace.rs` 验每个失败/缺项能回到批准修订、悬空引用拒绝，分开两个 requirement scope。追踪 “Requirement and environment trace coverage”“Frozen approved obligation plan”。
 
 ## 3. T3 — 隔离运行与全部尝试证据

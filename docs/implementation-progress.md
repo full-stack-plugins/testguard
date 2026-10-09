@@ -52,3 +52,9 @@ Review: `/workspace/guard-implementation-ledger/testguard-review.md`; base `fe85
 - Updated CoverageEvidence field descriptions, generated Draft7 schema and CLI counting documentation together. No wire field/version change; this corrects the existing execution metric semantics.
 - Final validation: `cargo test`57 passed/0 failed (including fresh native Cargo execution and native Maven capture consumers); Clippy warnings denied, formatting, schema shape checks and diff whitespace checks passed. Original independent reviewer repro now prints `Cargo parser accepts Surefire profile: false` and execution3/4, obligations2/3.
 - Root review previously accepted local tasks1.1/1.2/1.3/1.6; root retains ownership of acceptance registration/checkboxes. This fix pass does not expand production trust, sandbox or other partial-task claims.
+
+## Root acceptance registration
+
+Root confirmed independent fix verification:57 tests, both P2 findings closed. Registered exactly7/30 accepted tasks:1.1,1.2,1.3,1.6,2.2,2.3,2.5. Evidence: `/workspace/guard-implementation-ledger/testguard-review.md`, `/workspace/guard-implementation-ledger/testguard-review-fixes.md`, and commit11ef725. All other checkboxes remain unchecked; partial scopes retain their limitations.
+
+Next slice: actual GuardEngine projection/envelope and shared scope lifecycle integration (local task4.1–4.3 and relevant CLI1.5 portions, not an invented sandbox implementation). Read actual GE799fb1e interfaces; trust API remains under review and lifecycle actual coverage fix is pending. Local-fixture consumption only; no verified provider means no production gate. `run` remains unavailable until sandbox and execution authority are implemented.
