@@ -47,3 +47,35 @@ pub fn attempt(plan: &testguard::plan::FrozenPlan) -> testguard::report::Attempt
         artifacts: vec![artifact],
     }
 }
+pub fn engine_plan() -> testguard::plan::FrozenPlan {
+    let mut b = binding();
+    b["candidate"] = "1".repeat(40).into();
+    b["base"] = "2".repeat(40).into();
+    testguard::plan::FrozenPlan::freeze(
+        &testguard::obligation::ObligationSet::parse(&obligations().to_string()).unwrap(),
+        serde_json::from_value(b).unwrap(),
+    )
+    .unwrap()
+}
+pub fn invocation(
+    plan: &testguard::plan::FrozenPlan,
+) -> testguard::report::transport::FixtureInvocation {
+    use guardengine::integration::RunBinding;
+    testguard::report::transport::FixtureInvocation {
+        capability: testguard::report::engine_adapter::CAPABILITY.into(),
+        run_id: "run1".into(),
+        binding: RunBinding {
+            repo_id: plan.binding().repository.clone(),
+            task_id: "fixture-task".into(),
+            worktree_id: "fixture-worktree".into(),
+            requirement_ids: plan.obligations().requirements.clone(),
+            candidate_oid: plan.binding().candidate.clone(),
+            base_oid: plan.binding().base.clone(),
+            merge_group_id: None,
+            source_snapshot_digest: format!("sha256:{}", plan.binding().source_digest),
+            baseline_digest: Some(format!("sha256:{}", plan.obligations().baseline_digest)),
+        },
+        started_at: "2026-10-09T10:00:00Z".into(),
+        finished_at: "2026-10-09T10:00:01Z".into(),
+    }
+}

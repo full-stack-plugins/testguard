@@ -14,6 +14,51 @@ fn command(args: &[String]) -> Result<(serde_json::Value, i32), String> {
         .map(String::as_str)
         .ok_or("expected doctor/plan/check/verify/coverage/run")?;
     match cmd {
+        "check-engine" if (4..=6).contains(&args.len()) => {
+            use crate::report::transport::{FailureKind, FixtureInvocation, prepare};
+            let plan =
+                FrozenPlan::parse(&std::fs::read_to_string(&args[1]).map_err(|e| e.to_string())?)?;
+            let invocation: FixtureInvocation = read(&args[2])?;
+            let changes: Vec<Weakening> = if let Some(path) = args.get(4) {
+                read(path)?
+            } else {
+                vec![]
+            };
+            let advice: Vec<String> = if let Some(path) = args.get(5) {
+                read(path)?
+            } else {
+                vec![]
+            };
+            let bound =
+                prepare(&plan, invocation).map_err(|e| format!("{}: {}", e.code, e.message))?;
+            let result = match std::fs::read(&args[3]) {
+                Err(_) => bound.fail(FailureKind::Runtime, b"attempt input unavailable"),
+                Ok(bytes) => match serde_json::from_slice::<AttemptRecord>(&bytes) {
+                    Err(_) => bound.fail(FailureKind::Parser, &bytes),
+                    Ok(attempt) => bound.complete(&attempt, &changes, &advice),
+                },
+            }
+            .map_err(|e| format!("{}: {}", e.code, e.message))?;
+            let exit = result.exit_code();
+            Ok((
+                serde_json::to_value(result).map_err(|e| e.to_string())?,
+                exit,
+            ))
+        }
+        "verify-engine" if args.len() == 3 => {
+            let plan =
+                FrozenPlan::parse(&std::fs::read_to_string(&args[1]).map_err(|e| e.to_string())?)?;
+            let bundle: crate::report::envelope::FixtureBundle = read(&args[2])?;
+            crate::report::envelope::verify_bundle(&plan, &bundle)?;
+            eprintln!(
+                "engine and domain recomputation consistent; does not authenticate producer, approval or Git objects"
+            );
+            let exit = bundle.exit_code();
+            Ok((
+                serde_json::to_value(bundle.envelope).map_err(|e| e.to_string())?,
+                exit,
+            ))
+        }
         "doctor" if args.len() == 1 => Ok((
             serde_json::to_value(crate::doctor::discover(
                 &std::env::var_os("PATH").unwrap_or_default(),
