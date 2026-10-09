@@ -45,7 +45,7 @@
 - [x] 2.1 在 `src/adapters/junit.rs` 与 `fixtures/junit/` 采集 Maven/Gradle 真实报告/退出，`tests/junit_adapter.rs` 验八类 pass/fail/skip/zero/partial/timeout/missing-report/malformed 和参数化碰撞、旧文件，计数对照原生来源，0 false ALLOW。追踪 “Native adapter evidence fidelity”。
 - [x] 2.2 在 `src/adapters/cargo.rs` 与 `fixtures/cargo/` 依 1.1 固定协议采集真实 Cargo 运行，`tests/cargo_adapter.rs` 重复八类矩阵并验 ignored/参数/target/features 范围及未知版本拒绝，不假设未验证 JSON 能力。追踪 “Native adapter evidence fidelity”。
 - [x] 2.3 在 `src/adapters/mod.rs` 统一 `RawArtifactSet + ExecutorProfile → CaseObservation[]`，`tests/adapter_identity.rs` 验 native/stable ID、参数/环境消歧、重复与退出矛盾拒绝、仅接受本 attempt 工件。追踪 “Native adapter evidence fidelity”。
-- [ ] 2.4 在 `src/plan.rs` 消费 SG-BASELINE 的 `ObligationSet` 和不可变 binding/policy 生成 `FrozenPlan`，`tests/plan_freeze.rs` 用三义务×两环境逐个删除实例均留缺口，候选自改名单不能缩集合，未知导出 capability 拒绝。追踪 “Frozen approved obligation plan”“Requirement and environment trace coverage”。
+- [x] 2.4 在 `src/plan.rs` 消费 SG-BASELINE 的 `ObligationSet` 和不可变 binding/policy 生成 `FrozenPlan`，`tests/plan_freeze.rs` 用三义务×两环境逐个删除实例均留缺口，候选自改名单不能缩集合，未知导出 capability 拒绝。追踪 “Frozen approved obligation plan”“Requirement and environment trace coverage”。
 - [x] 2.5 在 `src/coverage.rs` 与 `src/policy.rs` 计算义务/测试/环境矩阵和分开的执行/statement/branch 指标，`tests/coverage_matrix.rs` 验空分母 N/A、额外通过不抵缺失、行覆盖不抵需求；阈值/过滤/已知断言删减保留原分母并提出复核。追踪 “Requirement and environment trace coverage”“Baseline authority and weakening review”。
 - [x] 2.6 在 `src/obligation/trace.rs` 输出 requirement/acceptance/invariant 双向证据链与覆盖查询，`tests/requirement_trace.rs` 验每个失败/缺项能回到批准修订、悬空引用拒绝，分开两个 requirement scope。追踪 “Requirement and environment trace coverage”“Frozen approved obligation plan”。
 

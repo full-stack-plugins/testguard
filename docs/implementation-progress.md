@@ -141,3 +141,10 @@ Task2.6 accepted at3bcbbb24. Independent110 maintained tests+4 probes with GE652
 ## Independently accepted quarantine audit qualifiers:18/30
 
 Task3.6 accepted at297769c for explicit descriptor-only local controller policy.116 maintained tests+2 independent probes passed on fixed GEba202. Each receipt refresh checks authenticated-record provider outputs, full action definition, purpose, scope and expiry/revocation. Candidate self-approval rejects. Legal quarantine is only an audit qualification: no ALLOW, no denominator removal and no mandatory failure clearing. Alternative evidence descriptor approval does not assert substitute tests executed or bytes resolved. Production authority remains unavailable. Evidence: cloud ledger testguard-quarantine-independent-review.md.
+
+
+## Protected SpecGuard import acceptance
+
+Task 2.4 accepted at `429109998f8c5d2bc03a497e4e9bd0a58da6a3b3` for the explicitly declared local fixture capability. `PreparedFixtureImport` freezes independent expected artifact/source/baseline/candidate/scope and external mappings before input consumption. Exact-byte checks and pre-expansion limits reject changed context and oversized matrices; each missing instance in the three-obligation/two-environment plan preserves denominator six and blocks. Unknown production capability rejects.
+
+Independent validation passed 118 maintained tests, two additional probes, Clippy, formatting and strict OpenSpec structure checks. The reviewer independently regenerated the baseline and export using the pinned actual SpecGuard producer and source Git bundle; both outputs are byte-identical. Evidence: cloud ledger `testguard-import-independent-review.md`. This supersedes the initial slice's partial 2.4 status; native execution argv/budgets belong to runner work, and authenticated production baseline/expiry/identity remain separate pending capabilities.
