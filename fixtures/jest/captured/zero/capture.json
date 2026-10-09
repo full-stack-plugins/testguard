@@ -1,0 +1,61 @@
+{
+  "exit_code": 1,
+  "interrupted": false,
+  "reason": null,
+  "body_started": false,
+  "adopted_children_reaped": 0,
+  "framework": "jest",
+  "distribution_version": "30.2.0",
+  "cli_version": "30.1.3",
+  "protocol": "jest-json-distribution-v30.2.0",
+  "required_cases_origin": "explicit fixture-controller manifest, NOT native listTests",
+  "native_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/jest/bin/jest.js",
+    "--config",
+    "/workspace/testguard-jest-o2btdaww/jest.config.cjs",
+    "--runInBand",
+    "--no-cache",
+    "--json",
+    "--outputFile",
+    "/workspace/testguard-jest-o2btdaww/report.json",
+    "--passWithNoTests"
+  ],
+  "native_cwd": "/workspace/testguard-jest-o2btdaww",
+  "native_environment": {
+    "PATH": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/usr/bin:/bin",
+    "HOME": "/workspace/testguard-jest-o2btdaww",
+    "TMPDIR": "/workspace/testguard-jest-o2btdaww",
+    "TZ": "UTC",
+    "CI": "1",
+    "NO_COLOR": "1",
+    "TESTGUARD_SCENARIO": "zero",
+    "TESTGUARD_STARTED": "/workspace/testguard-jest-o2btdaww/started"
+  },
+  "discovery_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/jest/bin/jest.js",
+    "--config",
+    "/workspace/testguard-jest-o2btdaww/jest.config.cjs",
+    "--runInBand",
+    "--no-cache",
+    "--listTests",
+    "--json"
+  ],
+  "discovery": {
+    "exit_code": 0,
+    "interrupted": false,
+    "reason": null,
+    "body_started": false,
+    "adopted_children_reaped": 0
+  },
+  "collector_fault": null,
+  "sha256": {
+    "controller-manifest.json": "d68a7dd976763dc226b2fa43a069f2b376d8f0a5e5982ebc457e7ad65e766e9d",
+    "inventory.json": "cac828ac371698a70b81350f82200f798255364b329ec4494e12ee0ce83ffe2a",
+    "report.native.json": "019dc25bb151e36cbd24bf8eef0f54a7507e015c8c56d9a1366adc7d58e3e460",
+    "report.input.json": "019dc25bb151e36cbd24bf8eef0f54a7507e015c8c56d9a1366adc7d58e3e460",
+    "stdout.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.raw": "32bc4b5182e2646f066d7fd8a71d16f126b81ef73c1229d28364afab3a85ae2e"
+  }
+}

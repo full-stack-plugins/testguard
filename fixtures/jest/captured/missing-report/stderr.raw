@@ -1,0 +1,15 @@
+PASS ./cases.test.cjs
+  ✓ first case (5 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.162 s
+Ran all test suites.
+Error: ENOTDIR: not a directory, open '/workspace/testguard-jest-tqnhf3es/blocked/report.json'
+    at Object.writeFileSync (node:fs:2483:20)
+    at processResults (/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js:3317:12)
+    at runJest (/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js:3472:9)
+    at _run10000 (/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js:1543:5)
+    at runCLI (/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js:1444:3)
+    at Object.run (/workspace/guard-toolchain/jest-30.2.0/node_modules/jest-cli/build/index.js:656:9)

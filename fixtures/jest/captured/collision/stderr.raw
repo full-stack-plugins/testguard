@@ -1,0 +1,10 @@
+PASS ./cases.test.cjs
+  ✓ duplicate parameter title (4 ms)
+  ✓ duplicate parameter title
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.143 s
+Ran all test suites.
+Test results written to: report.json

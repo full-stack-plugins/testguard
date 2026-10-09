@@ -1,0 +1,20 @@
+{
+  "profile": "local fixed fixture; no OS sandbox or production authority",
+  "node": "v24.19.0",
+  "jest_distribution": "30.2.0",
+  "actual_cli_version": "30.1.3",
+  "tool_sha256": {
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/jest/package.json": "d7149100b24a94ed29b6e491d9db774f2cac92b4c8f361e9c3c6cc515e70406f",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/jest/bin/jest.js": "2a9b435eab8a343bd09fe285b2e2043ff9ff89fae4e1d1f46ba3df28659d8a2c",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/test-result/build/index.js": "10b3729a425206f33305d691bf0208788d910ad83e917f552af30b1a364acf91",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/package.json": "f59a1f90696e444138c1fc5fafc7023d258b4feeeeb83c1d34e80a89abe2237d",
+    "/workspace/guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js": "0d9f6b0b60f13368d356534e17ab25b8fb73e08afbf58ec62470c252a9e2ce00",
+    "/workspace/guard-toolchain/jest-30.2.0/package-lock.json": "af57c9a260d2a9d88103f99d710510b48646b886326127d94d8e5e0849a70159"
+  },
+  "source_sha256": {
+    "jest.config.cjs": "3543af13a6bf59a68b2be0e55f4fc6810ae3ac6270aec3d0b0c61541842b1d61",
+    "cases.test.cjs": "cbd7d2a7221355b82730536d09f5438cdd8c5025a7bd48728dbaea9b283845f0"
+  },
+  "capture_script_sha256": "94718cfd54c49a07f899e03b3248b6e11f25499f8b047a5fdd0b42772cddda9d"
+}

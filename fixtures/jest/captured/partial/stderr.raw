@@ -1,0 +1,10 @@
+PASS ./cases.test.cjs
+  ✓ first case (3 ms)
+  ○ skipped second case
+
+Test Suites: 1 passed, 1 total
+Tests:       1 skipped, 1 passed, 2 total
+Snapshots:   0 total
+Time:        0.182 s
+Ran all test suites with tests matching "first case".
+Test results written to: report.json

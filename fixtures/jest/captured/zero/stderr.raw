@@ -1,0 +1,14 @@
+FAIL ./cases.test.cjs
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (../guard-toolchain/jest-30.2.0/node_modules/@jest/core/build/index.js:1057:18)
+          at Array.map (<anonymous>)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.181 s
+Ran all test suites.
+Test results written to: report.json

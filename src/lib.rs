@@ -6,6 +6,7 @@ pub fn supports_profile(tool: &str, version: &str, protocol: &str) -> bool {
             | ("gradle", "8.14.3", "junit-xml-v1")
             | ("playwright", "1.62.1", "playwright-json-v1.62.1")
             | ("vitest", "4.0.18", "vitest-json-v4.0.18")
+            | ("jest", "30.2.0", "jest-json-distribution-v30.2.0")
     )
 }
 

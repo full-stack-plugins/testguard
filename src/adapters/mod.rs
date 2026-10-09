@@ -28,3 +28,5 @@ pub mod junit;
 pub mod playwright;
 
 pub mod vitest;
+
+pub mod jest;

@@ -1,0 +1,26 @@
+FAIL ./cases.test.cjs
+  ✕ failing assertion (4 ms)
+
+  ● failing assertion
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 1
+
+      4 |  test('first case',()=>expect(1+1).toBe(2));
+      5 |  if(scenario==='partial')test('second case',()=>expect(true).toBe(true));
+    > 6 | } else if(scenario==='fail')test('failing assertion',()=>expect(1).toBe(2));
+        |                                                                    ^
+      7 | else if(scenario==='skip')test.skip('explicit skip',()=>expect(true).toBe(true));
+      8 | else if(['timeout','hard-timeout'].includes(scenario)) {
+      9 |  test('first case',()=>expect(1+1).toBe(2));
+
+      at Object.<anonymous> (cases.test.cjs:6:68)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        0.18 s
+Ran all test suites.
+Test results written to: report.json

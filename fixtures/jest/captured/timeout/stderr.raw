@@ -1,0 +1,25 @@
+FAIL ./cases.test.cjs
+  ✓ first case (2 ms)
+  ✕ hanging case (501 ms)
+
+  ● hanging case
+
+    thrown: "Exceeded timeout of 500 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+       8 | else if(['timeout','hard-timeout'].includes(scenario)) {
+       9 |  test('first case',()=>expect(1+1).toBe(2));
+    > 10 |  test('hanging case',async()=>{
+         |  ^
+      11 |   fs.writeFileSync(process.env.TESTGUARD_STARTED,'started');
+      12 |   await new Promise(()=>{});
+      13 |  });
+
+      at Object.<anonymous> (cases.test.cjs:10:2)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        0.69 s
+Ran all test suites.
+Test results written to: report.json
