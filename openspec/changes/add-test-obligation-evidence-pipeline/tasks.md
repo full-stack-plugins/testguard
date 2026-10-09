@@ -58,7 +58,7 @@
 - [x] 3.3 在 `src/runner/collect.rs` 与原生 parser 实施工件大小/深度及 XML 无外部实体限制，`tests/artifact_security.rs` 注入实体、截断、超限、压缩/路径滥用和报告篡改各一例均拒绝且保留已有失败。追踪 “Isolated bounded execution”“Native adapter evidence fidelity”。
 - [x] 3.4 在 `src/report/store.rs` 实现按 attempt 追加的受限存储、原始摘要/来源/脱敏与部署保留策略，`tests/evidence_store.rs` 验不可覆盖前轮、访问隔离、必要工件删除/到期拒绝消费，审计字段完整。追踪 “Authenticated evidence audit and freshness”。
 - [x] 3.5 在 `src/policy/retry.rs` 实现有界诊断重试与 flaky 分类，`tests/flaky_history.rs` 覆盖 pass→fail、fail→pass、fail→fail，每轮都保留原始工件，fail→pass 不自动清除 mandatory failure。追踪 “Append-only retries and quarantine”。
-- [ ] 3.6 在 `src/policy/quarantine.rs` 校验 owner/原因/到期/批准/替代保障，`tests/quarantine.rs` 验字段缺失、到期/撤销、候选自批均不能缩分母，只有新的合法批准基线能改变义务。追踪 “Append-only retries and quarantine”“Baseline authority and weakening review”。
+- [x] 3.6 在 `src/policy/quarantine.rs` 校验 owner/原因/到期/批准/替代保障，`tests/quarantine.rs` 验字段缺失、到期/撤销、候选自批均不能缩分母，只有新的合法批准基线能改变义务。追踪 “Append-only retries and quarantine”“Baseline authority and weakening review”。
 
 ## 4. TG-EVIDENCE — 引擎投影、信任与并发
 

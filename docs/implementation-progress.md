@@ -137,3 +137,7 @@ Task3.5 accepted at4b0404c for the controller-owned Linux local profile. Indepen
 ## Independently accepted bounded trace queries:17/30
 
 Task2.6 accepted at3bcbbb24. Independent110 maintained tests+4 probes with GE6527e2a verify whole-obligation reverse semantics, known-empty N/A, cross-requirement shared obligation without double counting, and3MB revision expansion rejected before cloned output. Review does not include concurrent protected importer changes or newer dependency qualification. Evidence: cloud ledger testguard-trace-independent-review.md.
+
+## Independently accepted quarantine audit qualifiers:18/30
+
+Task3.6 accepted at297769c for explicit descriptor-only local controller policy.116 maintained tests+2 independent probes passed on fixed GEba202. Each receipt refresh checks authenticated-record provider outputs, full action definition, purpose, scope and expiry/revocation. Candidate self-approval rejects. Legal quarantine is only an audit qualification: no ALLOW, no denominator removal and no mandatory failure clearing. Alternative evidence descriptor approval does not assert substitute tests executed or bytes resolved. Production authority remains unavailable. Evidence: cloud ledger testguard-quarantine-independent-review.md.
