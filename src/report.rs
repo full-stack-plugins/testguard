@@ -142,4 +142,5 @@ impl DomainFinding {
 pub mod engine_adapter;
 
 pub mod envelope;
+pub mod store;
 pub mod transport;
