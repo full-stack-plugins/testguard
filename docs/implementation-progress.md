@@ -148,3 +148,10 @@ Task3.6 accepted at297769c for explicit descriptor-only local controller policy.
 Task 2.4 accepted at `429109998f8c5d2bc03a497e4e9bd0a58da6a3b3` for the explicitly declared local fixture capability. `PreparedFixtureImport` freezes independent expected artifact/source/baseline/candidate/scope and external mappings before input consumption. Exact-byte checks and pre-expansion limits reject changed context and oversized matrices; each missing instance in the three-obligation/two-environment plan preserves denominator six and blocks. Unknown production capability rejects.
 
 Independent validation passed 118 maintained tests, two additional probes, Clippy, formatting and strict OpenSpec structure checks. The reviewer independently regenerated the baseline and export using the pinned actual SpecGuard producer and source Git bundle; both outputs are byte-identical. Evidence: cloud ledger `testguard-import-independent-review.md`. This supersedes the initial slice's partial 2.4 status; native execution argv/budgets belong to runner work, and authenticated production baseline/expiry/identity remain separate pending capabilities.
+
+
+## Reviewed local scheduler acceptance
+
+Task 4.6 accepted at `46d75880c571daef40aaaa683bfbab7eb406c193`. Independently archived TG/GE sources passed 127 tests and two reviewer probes. Ten real simultaneous requests retain ten distinct leases; the eleventh rejects at the configured cap. Full-work admission, single private lease/completion, exact binding queries and current CAS preserve late old ALLOW only as history after newer BLOCK. Four cancelled and six failed concurrent outputs retain exact raw bytes; abandoned newest work never revives old green. No native process scheduler, durable CAS, authenticated queue or production authorization is claimed. Evidence: cloud ledger `testguard-scheduler-independent-review.md`.
+
+Task 3.1 remains blocked in the present execution environment: see [sandbox platform decision](decisions/testguard-sandbox.md). This does not block independent parser, evidence, freshness or local scheduler work.

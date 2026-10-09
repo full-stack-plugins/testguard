@@ -1,0 +1,13 @@
+# Native sandbox platform decision — not qualified
+
+Task 3.1 remains unaccepted. The current cloud environment has not demonstrated the filesystem/network/process isolation required to run arbitrary native candidate tests. CLI `run` remains unavailable; no sandbox implementation or successful isolation test is claimed by this decision.
+
+On 2026-10-09, a direct read-only platform probe observed Linux x86_64 kernel `6.18.44`, uid/euid1000, zero permitted/effective/bounding capabilities, `NoNewPrivs=1`, and an existing seccomp filter. The x86_64 Landlock ABI query (`landlock_create_ruleset(NULL, 0, VERSION)`) returned -1/errno38. This records the observed syscall result; it does not distinguish kernel absence from outer-filter emulation.
+
+Both `unshare --user --map-root-user --net true` and `bwrap --unshare-user --unshare-pid --unshare-net --ro-bind / / -- true` returned exit1 because `/proc/self/uid_map` is read-only. These are namespace availability probes, not successful sandbox invocations; the read-only host bind in that diagnostic command is not the intended candidate runtime filesystem. Exact commands and output are retained in cloud ledger `testguard-sandbox-platform.json`.
+
+The already qualified local process profile provides bounded output and process cleanup for its fixed supported fixtures. Those properties do not prohibit arbitrary host reads/writes, isolate ports/databases, or remove production credentials from a native candidate environment. ArchGuard's fixed-tool process restrictions likewise do not qualify TestGuard's arbitrary runner. No root escalation, mount reconfiguration, credential provisioning or alternative runtime substitution was attempted.
+
+The selected native runner design needs a dedicated supported Linux worker that can establish private mount/user/PID/network namespaces (or another explicitly reviewed equivalent). Its future qualification must use a minimal readonly toolchain, private writable worktree/artifact/tmp, empty controlled environment, default-denied network, denied host write paths and bounded CPU/memory/process/output/time. Ten simultaneous tasks must demonstrate independent ports/databases/artifacts; symlink/path escape and surviving descendant attempts must fail. The controller must verify the isolation setup before executing candidate bytes and reject unsupported hosts. This document does not claim that merely changing namespace availability proves those requirements.
+
+Native sandbox acceptance requires that worker capability and its real adversarial matrix. Existing adapter captures remain developer-controlled fixtures; they must not be relabelled as protected execution evidence. All independent local tasks continue while this precise environment prerequisite is unresolved.
