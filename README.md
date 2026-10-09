@@ -60,3 +60,8 @@ Existing `guard.partme.ai/v1alpha1` supports GuardContract YAML, GuardFacts JSON
 - [External GuardEngine protocol reference](https://github.com/full-stack-plugins/guardengine/blob/main/docs/protocol.md)
 
 Phases T0–T4 progress from versioned schemas and missing-tool diagnostics to real JUnit/Cargo fixtures, frozen coverage matrices, isolated execution/flaky recovery, then additional frameworks and trusted integrations. Each phase requires reproducible positive and negative evidence; documentation is not an implementation milestone. Remaining decisions include adapter versions, test-ID stability, sandbox platform and retention limits.
+
+
+## OpenSpec implementation backlog
+
+The incremental [proposal](openspec/changes/add-test-obligation-evidence-pipeline/proposal.md), [design](openspec/changes/add-test-obligation-evidence-pipeline/design.md), [requirements](openspec/changes/add-test-obligation-evidence-pipeline/specs/) and [tasks](openspec/changes/add-test-obligation-evidence-pipeline/tasks.md) translate the architecture into pending implementation work. See the [cross-repository dependency roadmap](openspec/guard-roadmap.md) and [structural validation record](openspec/validation-2026-10-09.md). Every new implementation task remains unchecked; this branch adds planning artifacts, not product features. Earlier source-tree inventories and validation limitations describe the inspected baseline or earlier architecture-review stage; this planning stage adds OpenSpec artifacts and separately records actual CLI validation. Existing change ownership and historical completion evidence remain intact.

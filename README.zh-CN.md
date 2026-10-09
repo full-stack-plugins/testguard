@@ -60,3 +60,8 @@ testguard coverage --requirement REQ-017
 - [外部 GuardEngine 协议参考](https://github.com/full-stack-plugins/guardengine/blob/main/docs/protocol.md)
 
 T0–T4 从版本化模型和缺工具诊断，依次交付真实 JUnit/Cargo 夹具、冻结覆盖矩阵、隔离执行/flaky 恢复，最终扩展框架及可信集成。每期必须提供可复现正反例证据；文档不计实现里程碑。适配器版本、测试 ID 稳定性、沙箱平台及保留限额仍待确定。
+
+
+## OpenSpec 实施待办
+
+新增增量 [proposal](openspec/changes/add-test-obligation-evidence-pipeline/proposal.md)、[design](openspec/changes/add-test-obligation-evidence-pipeline/design.md)、[规范](openspec/changes/add-test-obligation-evidence-pipeline/specs/) 与 [tasks](openspec/changes/add-test-obligation-evidence-pipeline/tasks.md)，将架构方案拆成待实施工作。参阅[跨仓依赖路线图](openspec/guard-roadmap.md)与[结构验证记录](openspec/validation-2026-10-09.md)。所有新增实施任务保持未勾选；本分支新增规划，不新增产品功能。前文源码树清单和验证限制对应检查基线或较早的架构审阅阶段；本次另行新增 OpenSpec 文档并记录实际 CLI 校验。既有 change 的任务归属和历史完成证据继续保留。
