@@ -171,3 +171,10 @@ pub fn assess_with_metrics(
     result.coverage.source_metrics = metrics;
     Ok(result)
 }
+
+pub mod advanced;
+pub mod concurrency;
+pub mod contract;
+mod instrumented;
+pub mod mutation;
+pub mod state;

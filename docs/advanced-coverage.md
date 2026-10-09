@@ -1,0 +1,26 @@
+# Advanced coverage: fixed instrumented local profile
+
+`coverage::{contract,state,concurrency,mutation}` defines eight selected units in `testguard.advanced-instrumented-local/v1`. This is a trusted repository-owned in-process fixture, not instrumentation of arbitrary user programs, production evidence or a sandbox. No shell, arbitrary executable, installation or credentials are exposed. Rust threads and the host scheduler are used directly; this module does not establish process-wide timeout/RSS confinement or durable attempt uniqueness/publication.
+
+`AdvancedPlan::freeze` retains the entire original FrozenPlan and independently freezes four metric scopes, filter labels and explicit unit inventories. Every known unit must be included or have a nonempty exclusion reason. Filters are descriptive protected labels plus explicit inclusion/exclusion, not unevaluated regex claims. Omitted known units are rejected. Unknown units remain in the applicable denominator with unmapped reasons; they never generate a hit. Exclusions affect only that metric, never remove the original plan's required obligations or test×environment matrix. Empty applicable denominator is N/A with a reason, not100%.
+
+Fixture source bytes (`instrumented.rs`) and instrumentation implementation/unit definitions are SHA-256 pinned before execution. The original plan's source digest must equal these actual fixed source bytes. The only supported environment is `local-in-process`; unknown source/profile/test/environment mappings cannot prove coverage. Module/function anchors point into that source and the unit registry. This profile does not authenticate external baseline identities: the original local-fixture plan/provider boundary remains unchanged.
+
+`run_fixture` explicitly executes selected known cases and privately creates its receipt, actual AttemptRecord and hashed raw assertion artifact. There is no raw report/count receipt import or Deserialize constructor. The private receipt binds the advanced plan and original plan digests, attempt ID, fixture source and instrumentation hashes. The normal ArtifactRef raw byte digest is checked on assessment. Changing a frozen filter or source cannot relabel a returned attempt. Caller supplies a safe attempt identifier and must use existing scheduler/history/store interfaces for durable uniqueness, current pointers or access control.
+
+Actual measured units:
+
+| Metric | Fixed denominator units | What the evidence proves |
+| --- | --- | --- |
+| Contract | insufficient-balance rejection, selected transfer total | These exact assertions on the fixed account implementation |
+| State | cancellation transition, debit-after-cancel rejection | These explicit state checks, not all states/transitions |
+| Concurrency | two synchronized debits, two competing cancellations | Actual two-worker barrier scenarios and their final assertions, not all interleavings or race freedom |
+| Mutation | removed balance guard, removed cancelled-state guard | Original assertion passes and the same assertion fails for each actual selected weakened variant |
+
+Mutation results come from running the same assertion function against original and changed control flow; a detection flag is not prefilled from an operator name. Missing variant instrumentation, a surviving mutation or failed original assertion cannot contribute. Raw events retain expected/actual values, original and mutant assertion outcomes and worker observations. Worker observations are sorted by worker identity for inspection, not claimed as chronological scheduler traces.
+
+Assessment derives each unit's source→requirement→obligation→test×environment→attempt→artifact links from the unchanged plan and actual private events. Every relevant obligation instance must map to that exact fixed test/environment and be satisfied. Counts are per distinct frozen unit, not per successful event or number of source links. Missing, unsupported and extra/unmapped observations remain visible. `observed` means a corresponding raw event exists; `satisfied` additionally requires successful assertions and execution. Main execution/obligation assessment is retained separately, so extra passing cases or excluded metric units cannot repair a missing required obligation. Statement/branch coverage is never used as contract/state/concurrency/mutation evidence.
+
+Admission checks borrowed encoded input before ownership/hash (4MiB weighted budget), bounded four scopes/32units per scope/1024instances and2048trace links, and expansion charges before trace string clones. This is bounded local accounting, not a claim of exact total allocator/RSS behavior. Provider/OS failures that prevent a receipt are not successful coverage. The selected fixture profile must not be described as general mutation adequacy or semantic completeness.
+
+`tests/advanced_coverage.rs` actually runs all cases and selected mutations, verifies raw artifact references and every independent denominator, tests missing environments/cases, exclusions/N/A/unmapped units, unknown profile/source/attempt and changed mappings, and observes17MiB input admission. An explicit `TESTGUARD_ADVANCED_EVIDENCE_DIR` test option retains raw events, attempt and coverage JSON for independent review. No CLI or native-provider getter behavior changes.
