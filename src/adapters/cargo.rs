@@ -10,6 +10,7 @@ pub fn parse(
     raw: &RawArtifactSet,
     profile: &ExecutorProfile,
 ) -> Result<Vec<CaseObservation>, String> {
+    let mut budget = super::limits::ObservationBudget::new(raw, profile)?;
     require(
         profile.tool == "cargo"
             && crate::supports_profile(&profile.tool, &profile.version, &profile.protocol),
@@ -31,6 +32,7 @@ pub fn parse(
             .strip_suffix(": test")
             .ok_or("malformed Cargo inventory")?;
         require(!native.is_empty(), "empty native identity")?;
+        budget.reserve(native.len())?;
         let id = canonical_digest(&(
             native,
             &profile.target,

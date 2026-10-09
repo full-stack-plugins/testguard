@@ -96,3 +96,7 @@ P2 fix: borrowed domain admission now precedes assessment/plan-validation clones
 ## Independently reviewed domain budget checkpoint
 
 Task4.1 accepted for the local engine-fixture profile after b2e1611 and independent 71-test regression plus original allocation probe (extra peak170 bytes instead of50,599,927). Borrowed domain preflight precedes assessment/matrix cloning and GE FactBudget construction. Production trust/raw availability remain separate; no authenticated service claim. Tasks4.2/4.3 were already accepted; current reviewed total10/30.
+
+### Artifact security task3.3 implementation (awaiting independent review)
+
+Added opt-in Linux fd-rooted read-only collector and bounded Cargo/JUnit parser admission. Three parser regressions first failed for accepted oversized output/scope/node-count input, then passed. Conservative collector scaffold first rejected a valid native failure report, then actual fd-based collection passed path/size/digest/compression and failure-preservation cases. Lexical XML depth preflight precedes recursive parsing; no DTD/entity expansion is allowed. Explicit profile and limits are in docs/decisions/testguard-artifact-collection.md. Task3.3 remains unchecked pending independent acceptance. Task3.2 is not implemented by this slice, and run/sandbox/production trust remain unavailable.

@@ -404,10 +404,12 @@ version = "0.1.0"
 dependencies = [
  "guardengine",
  "roxmltree",
+ "rustix",
  "schemars",
  "serde",
  "serde_json",
  "sha2",
+ "tempfile",
 ]
 
 [[package]]

@@ -8,6 +8,7 @@ pub fn parse(
     raw: &RawArtifactSet,
     profile: &ExecutorProfile,
 ) -> Result<Vec<CaseObservation>, String> {
+    let mut budget = super::limits::ObservationBudget::new(raw, profile)?;
     require(
         profile.tool == "maven-surefire"
             && crate::supports_profile(&profile.tool, &profile.version, &profile.protocol),
@@ -19,17 +20,19 @@ pub fn parse(
     )?;
     raw.artifact.validate(&raw.attempt_id)?;
     raw.artifact.verify(raw.output.as_bytes())?;
-    require(
-        raw.output.len() <= 4 * 1024 * 1024
-            && !raw.output.contains("<!DOCTYPE")
-            && !raw.output.contains("<!ENTITY"),
-        "unsafe or oversized XML",
-    )?;
+    super::limits::xml_preflight(&raw.output)?;
     require(
         !raw.interrupted,
         "interrupted XML report cannot prove completion",
     )?;
-    let doc = roxmltree::Document::parse(&raw.output).map_err(|e| e.to_string())?;
+    let doc = roxmltree::Document::parse_with_options(
+        &raw.output,
+        roxmltree::ParsingOptions {
+            allow_dtd: false,
+            nodes_limit: super::limits::MAX_XML_NODES,
+        },
+    )
+    .map_err(|e| e.to_string())?;
     let root = doc.root_element();
     require(
         root.tag_name().name() == "testsuite",
@@ -104,6 +107,12 @@ pub fn parse(
             }
             _ => CaseStatus::Pass,
         };
+        budget.reserve(
+            suite
+                .len()
+                .saturating_add(class.len())
+                .saturating_add(name.len()),
+        )?;
         let native_id = serde_json::to_string(&(suite, class, name)).map_err(|e| e.to_string())?;
         let test_id = canonical_digest(&(
             &native_id,

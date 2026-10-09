@@ -1,0 +1,9 @@
+{
+  "generator": "Python stdlib gzip.compress(b\"x\" * (8 * 1024 * 1024), mtime=0)",
+  "compressed_bytes": 8175,
+  "expanded_bytes": 8388608,
+  "compressed_sha256": "207d33413f52164e0f849035f02d50d991231062e258f4590f4c035be45bfb28",
+  "expanded_sha256": "0c77bc0a0795a93612d45256897456d0fcb24f151c44c150d07ecd03f4ef5168",
+  "native_tool_output": false,
+  "purpose": "deliberate compressed-artifact attack fixture; collector must reject without decompressing"
+}

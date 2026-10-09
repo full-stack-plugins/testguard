@@ -1,4 +1,5 @@
 pub mod cargo;
+pub(crate) mod limits;
 use crate::report::normalize::ArtifactRef;
 use serde::{Deserialize, Serialize};
 #[derive(schemars::JsonSchema, Clone, Debug, Serialize, Deserialize)]
