@@ -1,0 +1,18 @@
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: ENOTDIR: not a directory, open '/workspace/testguard-vitest-65gjlz61/blocked/report.json'
+ ❯ open node:internal/fs/promises:697:25
+ ❯ Object.writeFile node:internal/fs/promises:1317:14
+ ❯ JsonReporter.writeReport ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/index.M8mOzt4Y.js:3456:4
+ ❯ JsonReporter.onTestRunEnd ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/index.M8mOzt4Y.js:3443:3
+ ❯ Vitest.report ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/cli-api.B7PN_QUv.js:12959:3
+ ❯ TestRun.end ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/cli-api.B7PN_QUv.js:11793:3
+ ❯ ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/cli-api.B7PN_QUv.js:12612:6
+ ❯ ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/cli-api.B7PN_QUv.js:12622:11
+ ❯ ../guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/cli-api.B7PN_QUv.js:12506:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -20, code: 'ENOTDIR', syscall: 'open', path: '/workspace/testguard-vitest-65gjlz61/blocked/report.json' }
+
+
+

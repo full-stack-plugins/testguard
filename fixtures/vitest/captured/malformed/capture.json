@@ -1,0 +1,52 @@
+{
+  "exit_code": 0,
+  "interrupted": false,
+  "reason": null,
+  "body_started": false,
+  "adopted_children_reaped": 1,
+  "framework": "vitest",
+  "version": "4.0.18",
+  "protocol": "vitest-json-v4.0.18",
+  "native_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/vitest.mjs",
+    "run",
+    "--config",
+    "/workspace/testguard-vitest-e9g_2ev1/vitest.config.mjs"
+  ],
+  "native_cwd": "/workspace/testguard-vitest-e9g_2ev1",
+  "native_environment": {
+    "PATH": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/usr/bin:/bin",
+    "HOME": "/workspace/testguard-vitest-e9g_2ev1",
+    "TMPDIR": "/workspace/testguard-vitest-e9g_2ev1",
+    "TZ": "UTC",
+    "CI": "1",
+    "NO_COLOR": "1",
+    "TESTGUARD_SCENARIO": "malformed",
+    "TESTGUARD_STARTED": "/workspace/testguard-vitest-e9g_2ev1/started",
+    "TESTGUARD_REPORT": "/workspace/testguard-vitest-e9g_2ev1/report.json"
+  },
+  "discovery_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/vitest.mjs",
+    "list",
+    "--config",
+    "/workspace/testguard-vitest-e9g_2ev1/vitest.config.mjs",
+    "--json"
+  ],
+  "discovery": {
+    "exit_code": 0,
+    "interrupted": false,
+    "reason": null,
+    "body_started": false,
+    "adopted_children_reaped": 1
+  },
+  "collector_fault": "actual bounded consumer read exhausted at128 bytes; native reporter JSON itself remains intact",
+  "sha256": {
+    "inventory.json": "d293a964271d29197e6fd34a9ff6242ad246c7f7e93ef9d153d4bbffb73be82d",
+    "report.native.json": "352ba68a82e2724183f525558d34ae92383b4de39b9e3168f7c9cf75bb0f29cb",
+    "report.input.json": "95f94d72a65d85c604208b6e11e37d03e28caaf26e7d68de737cbb83e4bb3388",
+    "stdout.raw": "e301186adbf1e6b5d96e650f04878ee0921e070e731f5ff45e399c828ec47bd5",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

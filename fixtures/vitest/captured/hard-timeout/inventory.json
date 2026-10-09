@@ -1,0 +1,10 @@
+[
+  {
+    "name": "first case",
+    "file": "/workspace/testguard-vitest-pqb8e8fd/cases.test.mjs"
+  },
+  {
+    "name": "hanging case",
+    "file": "/workspace/testguard-vitest-pqb8e8fd/cases.test.mjs"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "first case",
+    "file": "/workspace/testguard-vitest-8925ff81/cases.test.mjs"
+  },
+  {
+    "name": "second case",
+    "file": "/workspace/testguard-vitest-8925ff81/cases.test.mjs"
+  }
+]

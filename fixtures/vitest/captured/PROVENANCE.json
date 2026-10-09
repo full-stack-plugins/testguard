@@ -1,0 +1,18 @@
+{
+  "profile": "local fixed fixture; no OS sandbox or production authority",
+  "node": "v24.19.0",
+  "vitest": "4.0.18",
+  "tool_sha256": {
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/package.json": "d83c63a3391f403a6dce4793c90e9d9d02faf113c7ed8d77b424e59f48ef8328",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/vitest.mjs": "39db22f579acf5639bbb17a261408debbde03f4692c0c439e77e7f13aeba74d6",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/reporters.js": "2ee1da9edaed5824990b04f63739cfe90755713ff9a5e0d1a8345008eab3e540",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/dist/chunks/index.M8mOzt4Y.js": "beb009a8c6bbce7340240b818d8264e728b259b286be6e3c59771b71f6f62f12",
+    "/workspace/guard-toolchain/vitest-4.0.18/package-lock.json": "0abd1fb9a25509025a1b85623d28a39d5704f0294d9148a312b2e3c308680d3f"
+  },
+  "source_sha256": {
+    "vitest.config.mjs": "816964937c2fe737537f9e370a1d9896cc6a5733ed448719bc155e0f26f10eaf",
+    "cases.test.mjs": "9dc9706e1bb873802e701aa5f2e9089019f318dd82e30c3c8da01f383d11c21e"
+  },
+  "capture_script_sha256": "d1e16201aff0c874d9ac64a2c636a0299f9e861ce85f9fa0088fb61121c42a05"
+}

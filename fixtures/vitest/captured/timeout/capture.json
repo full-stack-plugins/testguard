@@ -1,0 +1,52 @@
+{
+  "exit_code": 1,
+  "interrupted": false,
+  "reason": null,
+  "body_started": false,
+  "adopted_children_reaped": 1,
+  "framework": "vitest",
+  "version": "4.0.18",
+  "protocol": "vitest-json-v4.0.18",
+  "native_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/vitest.mjs",
+    "run",
+    "--config",
+    "/workspace/testguard-vitest-t9x6g03e/vitest.config.mjs"
+  ],
+  "native_cwd": "/workspace/testguard-vitest-t9x6g03e",
+  "native_environment": {
+    "PATH": "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/usr/bin:/bin",
+    "HOME": "/workspace/testguard-vitest-t9x6g03e",
+    "TMPDIR": "/workspace/testguard-vitest-t9x6g03e",
+    "TZ": "UTC",
+    "CI": "1",
+    "NO_COLOR": "1",
+    "TESTGUARD_SCENARIO": "timeout",
+    "TESTGUARD_STARTED": "/workspace/testguard-vitest-t9x6g03e/started",
+    "TESTGUARD_REPORT": "/workspace/testguard-vitest-t9x6g03e/report.json"
+  },
+  "discovery_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/workspace/guard-toolchain/vitest-4.0.18/node_modules/vitest/vitest.mjs",
+    "list",
+    "--config",
+    "/workspace/testguard-vitest-t9x6g03e/vitest.config.mjs",
+    "--json"
+  ],
+  "discovery": {
+    "exit_code": 0,
+    "interrupted": false,
+    "reason": null,
+    "body_started": false,
+    "adopted_children_reaped": 1
+  },
+  "collector_fault": null,
+  "sha256": {
+    "inventory.json": "c2afbf256c7b5ff99ed2669050e129d4c491689fb994a4f831393c9749904fb2",
+    "report.native.json": "6c1775f7340559ecebd787b6b79edd4a7397e1d4be7c0f16a09425057749dd92",
+    "report.input.json": "6c1775f7340559ecebd787b6b79edd4a7397e1d4be7c0f16a09425057749dd92",
+    "stdout.raw": "7b0a9e83ed030dd9140cf8cead4f5d76428bb36bd720d94bc2265051470575d8",
+    "stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

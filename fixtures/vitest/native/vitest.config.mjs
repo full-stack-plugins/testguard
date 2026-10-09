@@ -1,0 +1,1 @@
+export default {test:{include:['cases.test.mjs'],environment:'node',pool:'forks',maxWorkers:1,fileParallelism:false,retry:0,testTimeout:process.env.TESTGUARD_SCENARIO==='timeout'?500:30000,reporters:['json'],outputFile:process.env.TESTGUARD_REPORT,passWithNoTests:true}};
