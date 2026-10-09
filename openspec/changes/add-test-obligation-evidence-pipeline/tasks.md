@@ -75,7 +75,7 @@
 
 输入：通过 T0–T3 与相应 TG-EVIDENCE profile 的实现；输出：额外适配器、受控集成和可回滚交付。独立队列证据任务 5.4 仅等待 GG-CANDIDATE + GE-TRUST，不等待消费其结果的 FG-GATE；只有最终联合任务 5.6 等待相关 FG-GATE；独立生产发行等 GE-RELEASE，不阻塞早期 pinned-source 开发。
 
-- [ ] 5.1 在 `src/adapters/{vitest,jest,playwright}.rs` 增加明示版本框架，`fixtures/{vitest,jest,playwright}/` 与 `tests/extended_adapters.rs` 每框架重跑 T1 八类真实矩阵并保留 native ID/环境，未验收版本仍 unsupported。追踪 “Native adapter evidence fidelity”。
+- [x] 5.1 在 `src/adapters/{vitest,jest,playwright}.rs` 增加明示版本框架，`fixtures/{vitest,jest,playwright}/` 与 `tests/extended_adapters.rs` 每框架重跑 T1 八类真实矩阵并保留 native ID/环境，未验收版本仍 unsupported。追踪 “Native adapter evidence fidelity”。
 - [ ] 5.2 在 `src/coverage/{contract,state,concurrency,mutation}.rs` 定义可支持的来源与过滤范围，`tests/advanced_coverage.rs` 对每指标验分母/排除/未映射与空分母，精选弱化 mutation 必须检出且明确不能证明任意语义完备。追踪 “Requirement and environment trace coverage”“Baseline authority and weakening review”。
 - [ ] 5.3 在 `src/integration/mcp.rs` 提供发现/计划/状态/证据查询与显式受权 run，`tests/mcp_permissions.rs` 验只读 token 无法启动测试、执行需限额/权限、取消状态正确、输出 profile 与 CLI 一致。追踪 “Read-only and execution interface separation”“Isolated bounded execution”。
 - [ ] 5.4 在 `src/integration/ci.rs` 与 `tests/merge_queue.rs` 接精确 synthetic candidate/base/merge-group，验 PR-head 证据拒绝、队列变更重检、外部审批不赋合并权；CI 配置受保护且控制端凭据不进入 runner。追踪 “Candidate-bound concurrency and queue checks”“Authenticated evidence audit and freshness”。
