@@ -129,3 +129,7 @@ Normalization1.4 implementation9457f04 has104 full tests and strict Clippy/fmt p
 ## Independently accepted bounded normalization:15/30
 
 Task1.4 accepted at9457f04:104 maintained tests and3 independent edge probes pass. Domain artifact references retain their separate wire contract, exact raw bytes and attempt scope; generic canonicalization is not claimed globally bounded and reference integrity is not authentication. Store remains4MiB. Evidence: cloud ledger testguard-normalization-independent-review.md.
+
+## Independently accepted diagnostic retry history:16/30
+
+Task3.5 accepted at4b0404c for the controller-owned Linux local profile. Independent107 tests plus8-round exact limit/ninth rejection/poison persistence/raw preservation probes pass. Mixed failure history remains BLOCK; no fresh consume bypass for expired or deleted artifacts. The session remains in-memory and is not scheduler restart recovery or automatic native execution. Evidence: cloud ledger testguard-retry-independent-review.md.
