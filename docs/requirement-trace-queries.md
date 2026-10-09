@@ -1,0 +1,11 @@
+# Requirement trace queries
+
+`obligation::trace::trace` retains its existing flat edge format. The additive `query(plan, attempt, TraceQuery)` API selects All, Requirement(id), Source(id), or reverse Test { test_id, environment }. Source metadata preserves requirement/acceptance/invariant kind. Unknown selectors and invalid/stale plan/attempts are rejected; empty known scopes have zero denominators (N/A), not proof of coverage. References are the frozen plan's revision/approval reference and the current attempt's original artifact URI; they do not authenticate external approval.
+
+Each selected edge keeps the requirement, source, obligation, test, environment, revision, attempt and raw observation status. Missing observations retain edges with missing status and no artifact. Raw pass status is not itself successful coverage: the existing domain assessment determines satisfaction, including unfinished attempts and nonzero exits.
+
+Execution metrics deduplicate test×environment; obligation metrics deduplicate obligation IDs. Repeated acceptance/invariant links do not inflate either denominator. An obligation numerator means its entire frozen obligation is satisfied, including environments outside a narrow reverse query. Two requirement queries remain separate; a deliberately shared source/test can appear in both views, so adding per-requirement counts is not a global total. Query All provides the deduplicated total.
+
+Before cloning trace rows, borrowed expanded strings receive conservative encoded/owned admission against 16 MiB, including every repeated revision/approval and artifact reference. The final query report also has an encoded budget. Large valid inputs may be rejected; edges are never truncated or silently excluded to fit. This is not an exact RSS cap. Existing input/assessment budgets and dangling-reference validation remain in force.
+
+The module consumes existing FrozenPlan semantics and does not create a new approved baseline, execution runner or gate. Local fixture approval references remain fixture references. Actual SpecGuard import and authority requirements belong to their separately reviewed producer/plan entrypoints. Tests cover forward/reverse scope, missing/fail revision links, source and test sharing without denominator inflation, forged/dangling scopes and a real long-revision output expansion regression.
