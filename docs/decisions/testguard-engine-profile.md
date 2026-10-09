@@ -21,3 +21,13 @@ A completed local FixtureBundle carries exact inline artifact bytes under genera
 ## Trust and remaining gates
 
 GE's reviewed eligibility/provider/store ports were inspected. No provider was selected, implemented, loaded or trusted by TestGuard. Fixture bundle approval refs are empty and recomputation rejects injected refs. Later controller integration must authenticate producer/approvals, verify actual repository/source identities, enforce protected policy and freshness, and control storage access. Sandbox, bounded runner, Gradle and production authorization remain incomplete. No new task checkbox is accepted based only on this implementation.
+
+## Domain admission and fact construction budgets
+
+After independent engine review, a borrowed domain preflight runs before assessment, scope computation and preparation can rebuild a plan or clone missing/unsatisfied edges. Its accounting cap reuses GE MAX_ARTIFACT_BYTES (16 MiB): encoded borrowed plan + optional attempt + twice encoded changes/advice + six encoded equivalents of each expected obligation/environment edge. Expected edges are derived from source obligations, so an inconsistent smaller instances array cannot conceal expansion. JSON escaping counts without constructing JSON Value/Vec or copying input strings. The six-equivalent reserve conservatively accounts for matrix rebuild, both gap lists, owned fact source, domain serialization and collection overhead; it is admission accounting, not an exact process RSS guarantee. Matching work estimate `max(expected_edges, actual_edges) * (observations + obligations + environments) + sources * requirements` must be at most1,000,000, with saturating arithmetic. This experimental local limit may reject large otherwise syntactically valid inputs; it never trims required scope.
+
+Over-budget library evaluation returns `domain assessment budget exceeded`. Over-budget pre-binding preparation produces a diagnostic only; a bound completion failure returns error/null/4 with retained frozen scope and input. Full CLI ingestion/plan construction/parser security remains task3.3 and is not claimed by this fix.
+
+Actual GE0907beb supplies FactBudget: owned facts are built through borrowed push_relation calls after this domain preflight, then evaluate_bounded still guards report expansion and verify_engine_artifacts guards final issuance. The consumer lock was refreshed offline for GE's new yaml-rust2 dependency. Cargo.lock does not pin sibling source.
+
+Final consuming checks target sibling GEc80ec325449842d51007db2fd507040c53dc8f51 (includes FactBudget0907beb and composed-source follow-up).

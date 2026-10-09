@@ -44,6 +44,7 @@ pub fn prepare(
     invocation: FixtureInvocation,
 ) -> Result<BoundFixtureAttempt, TransportDiagnostic> {
     let invalid = |s: &str| diagnostic("invocation.invalid", s);
+    crate::coverage::preflight(plan, None, &[], &[]).map_err(|e| invalid(&e))?;
     plan.validate().map_err(|e| invalid(&e))?;
     if invocation.capability != CAPABILITY {
         return Err(invalid("unsupported fixture capability"));

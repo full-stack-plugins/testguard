@@ -65,8 +65,8 @@
 输入：领域 assessment、外部门冻结接口；输出：符合 profile 的集成证据。4.1–4.3 等 GE-CONTRACT/GE-ADAPTER；4.4–4.6 的可信消费额外等 GE-TRUST。`TG-EVIDENCE` 只有专业追踪、真实适配与本组互操作证据达到所需 profile 时成立，不能只凭 schema 文件打勾。
 
 - [ ] 4.1 在 `src/report/engine_adapter.rs` 固定映射版本与 engine profile，输入 DomainAssessment、输出当前严格合同/事实，`tests/engine_mapping.rs` 对必需缺失/失败/review/advise 正反 golden vectors 验 schema 和预期决定；未知 capability 拒绝，不扩展当前 wire。追踪 “Strict engine projection and error transport”。
-- [ ] 4.2 在 `src/report/transport.rs` 区分 `PreBindingDiagnostic` 与 `BoundAttemptEnvelope`，`tests/error_transport.rs` 验参数/仓库/候选/覆盖未冻结无信封、无空 OID；绑定后 parser/runtime/cancel error 为 null decision/4，已有失败保留。追踪 “Strict engine projection and error transport”。
-- [ ] 4.3 在 `src/report/envelope.rs` 使用 GE-CONTRACT 冻结的独立 schema，`tests/envelope_parity.rs` 验 completed 合同/事实/报告 refs 必需、decision 与 report 相等、partial 为 BLOCK/2、verify 重算不声称来源认证、未知版本/字段拒绝。追踪 “Strict engine projection and error transport”。
+- [x] 4.2 在 `src/report/transport.rs` 区分 `PreBindingDiagnostic` 与 `BoundAttemptEnvelope`，`tests/error_transport.rs` 验参数/仓库/候选/覆盖未冻结无信封、无空 OID；绑定后 parser/runtime/cancel error 为 null decision/4，已有失败保留。追踪 “Strict engine projection and error transport”。
+- [x] 4.3 在 `src/report/envelope.rs` 使用 GE-CONTRACT 冻结的独立 schema，`tests/envelope_parity.rs` 验 completed 合同/事实/报告 refs 必需、decision 与 report 相等、partial 为 BLOCK/2、verify 重算不声称来源认证、未知版本/字段拒绝。追踪 “Strict engine projection and error transport”。
 - [ ] 4.4 在 `src/integration/trust.rs` 接 GE-TRUST 验证端口，由外部控制器提供认证执行者/审批；`tests/trust_refs.rs` 验伪造/到期/撤销/不可访问/范围扩大均拒绝，unsigned hash 不能认证，专家 REQUIRE_APPROVAL 不被批准记录改写。追踪 “Authenticated evidence audit and freshness”“Baseline authority and weakening review”。
 - [ ] 4.5 在 `src/report/freshness.rs` 定义不可变复用键且默认禁跨 run 结果缓存，`tests/invalidation.rs` 逐项改变 candidate/base/merge-group/source/baseline/policy/analyzer/config/coverage/approval 均失效，历史不变，缓存不掩盖撤销。追踪 “Authenticated evidence audit and freshness”。
 - [ ] 4.6 在 `src/runner/scheduler.rs` 实现等价请求幂等、独立 attempt 和当前绑定 compare-and-set，`tests/concurrent_attempts.rs` 验重复请求不重复启动、两需求不串用审批/证据、晚到旧 ALLOW 不能覆盖新失败。追踪 “Candidate-bound concurrency and queue checks”。

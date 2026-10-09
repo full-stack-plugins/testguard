@@ -6,7 +6,7 @@ use crate::{
     report::{AttemptRecord, CaseStatus},
 };
 use guardengine::{
-    integration::{Coverage, CoverageStatus, evaluate_bounded},
+    integration::{Coverage, CoverageStatus, FactBudget, evaluate_bounded},
     *,
 };
 pub const CAPABILITY: &str = "testguard.engine-fixture/v1";
@@ -25,6 +25,7 @@ fn json<T: serde::Serialize>(v: &T) -> Result<Vec<u8>, String> {
 }
 /// Frozen scope identities describe distinct required tests in their environments, not discovery output.
 pub fn required_scopes(plan: &FrozenPlan) -> Result<Vec<String>, String> {
+    crate::coverage::preflight(plan, None, &[], &[])?;
     plan.validate()?;
     let scopes: std::collections::BTreeSet<_> = plan
         .instances()
@@ -38,6 +39,7 @@ pub fn required_scopes(plan: &FrozenPlan) -> Result<Vec<String>, String> {
     Ok(scopes.into_iter().collect())
 }
 pub fn observed_coverage(plan: &FrozenPlan, attempt: &AttemptRecord) -> Result<Coverage, String> {
+    crate::coverage::preflight(plan, Some(attempt), &[], &[])?;
     plan.validate()?;
     attempt.validate()?;
     require(
@@ -91,6 +93,7 @@ pub fn project(
         capability == CAPABILITY,
         "unsupported engine adapter capability",
     )?;
+    crate::coverage::preflight(plan, Some(attempt), changes, advice)?;
     require(
         attempt.finished && attempt.exit_code.is_some(),
         "execution has no completed outcome",
@@ -130,25 +133,24 @@ pub fn project(
             ],
         },
     };
-    let fact = |object: &str, source: String| GuardFact {
-        subject: "testguard:assessment".into(),
-        predicate: "has".into(),
-        object: object.into(),
-        source,
+    let mut relations = FactBudget::new();
+    let mut fact = |object: &str, source: &str| {
+        relations
+            .push_relation("testguard:assessment", "has", object, source)
+            .map_err(|e| e.to_string())
     };
-    let mut relations = Vec::new();
     for instance in &assessment.coverage.unsatisfied {
-        relations.push(fact(
+        fact(
             "unsatisfied",
-            String::from_utf8(json(instance)?).map_err(|e| e.to_string())?,
-        ));
+            &String::from_utf8(json(instance)?).map_err(|e| e.to_string())?,
+        )?;
     }
     for change in changes {
-        relations.push(fact("review", format!("{change:?}")));
+        fact("review", &format!("{change:?}"))?;
     }
     for message in advice {
         require(!message.trim().is_empty(), "empty advisory source")?;
-        relations.push(fact("advice", message.clone()));
+        fact("advice", message)?;
     }
     let partial = coverage.status == CoverageStatus::Partial;
     let facts = GuardFacts {
@@ -167,7 +169,7 @@ pub fn project(
         } else {
             Completeness::Complete
         },
-        facts: relations,
+        facts: relations.finish().map_err(|e| e.to_string())?,
         diagnostics: if partial {
             vec![format!(
                 "{} required test/environment scopes lack a finished execution",

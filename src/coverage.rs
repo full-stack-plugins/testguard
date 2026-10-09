@@ -4,6 +4,8 @@ use crate::{
     report::AttemptRecord,
 };
 use serde::{Deserialize, Serialize};
+mod budget;
+pub(crate) use budget::preflight;
 #[derive(schemars::JsonSchema, Clone, Debug, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Metric {
@@ -50,6 +52,7 @@ pub fn assess(
 ) -> Result<DomainAssessment, String> {
     use crate::obligation::{VERSION, require};
     use crate::report::{CaseStatus, normalize::canonical_digest};
+    preflight(plan, Some(attempt), changes, &[])?;
     plan.validate()?;
     attempt.validate()?;
     require(
