@@ -1,0 +1,3 @@
+# Native evidence bytes must survive checkout unchanged, including trailing spaces.
+fixtures/junit/matrix/captured/**/*.raw -text -whitespace
+fixtures/junit/matrix/captured/**/*.xml -text -whitespace
