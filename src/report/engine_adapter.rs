@@ -82,6 +82,39 @@ pub fn observed_coverage(plan: &FrozenPlan, attempt: &AttemptRecord) -> Result<C
         missing_scopes,
     })
 }
+/// Prepare the exact native contract from the frozen plan before execution.
+/// This only validates bounded plan metadata; it does not run tests, consume
+/// observations, authenticate evidence, or grant eligibility.
+pub fn contract(plan: &FrozenPlan) -> Result<GuardContract, String> {
+    crate::coverage::preflight(plan, None, &[], &[])?;
+    plan.validate()?;
+    let rule = |id: &str, enforcement: Enforcement, object: &str| GuardRule {
+        id: id.into(),
+        description: format!("{MAPPING_VERSION}: {object}"),
+        enforcement,
+        assertion: GuardAssertion::ForbidRelation {
+            subject: "testguard:assessment".into(),
+            predicate: "has".into(),
+            object: object.into(),
+        },
+    };
+    let contract = GuardContract {
+        api_version: API_VERSION.into(),
+        kind: "GuardContract".into(),
+        metadata: ContractMetadata {
+            id: MAPPING_VERSION.into(),
+            revision: plan.binding().policy_digest.clone(),
+        },
+        spec: ContractSpec {
+            rules: vec![
+                rule("mandatory", Enforcement::Enforce, "unsatisfied"),
+                rule("weakening", Enforcement::Review, "review"),
+                rule("advisory", Enforcement::Advise, "advice"),
+            ],
+        },
+    };
+    Ok(contract)
+}
 pub fn project(
     plan: &FrozenPlan,
     attempt: &AttemptRecord,
@@ -108,31 +141,7 @@ pub fn project(
     )?;
     let assessment = assess(plan, attempt, changes)?;
     let coverage = observed_coverage(plan, attempt)?;
-    let rule = |id: &str, enforcement: Enforcement, object: &str| GuardRule {
-        id: id.into(),
-        description: format!("{MAPPING_VERSION}: {object}"),
-        enforcement,
-        assertion: GuardAssertion::ForbidRelation {
-            subject: "testguard:assessment".into(),
-            predicate: "has".into(),
-            object: object.into(),
-        },
-    };
-    let contract = GuardContract {
-        api_version: API_VERSION.into(),
-        kind: "GuardContract".into(),
-        metadata: ContractMetadata {
-            id: MAPPING_VERSION.into(),
-            revision: plan.binding().policy_digest.clone(),
-        },
-        spec: ContractSpec {
-            rules: vec![
-                rule("mandatory", Enforcement::Enforce, "unsatisfied"),
-                rule("weakening", Enforcement::Review, "review"),
-                rule("advisory", Enforcement::Advise, "advice"),
-            ],
-        },
-    };
+    let contract = contract(plan)?;
     let mut relations = FactBudget::new();
     let mut fact = |object: &str, source: &str| {
         relations
