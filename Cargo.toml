@@ -1,5 +1,6 @@
 [package]
 name = "testguard"
+default-run = "testguard"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.99"
@@ -13,7 +14,8 @@ schemars = "=0.8.22"
 guardengine = { path = "../guardengine", version = "=0.1.0" }
 
 [target.'cfg(target_os = "linux")'.dependencies]
-rustix = { version = "=1.1.5", features = ["fs"] }
+libc = "=0.2.190"
+rustix = { version = "=1.1.5", features = ["fs", "process"] }
 
 [dev-dependencies]
 tempfile = "=3.27.0"

@@ -403,6 +403,7 @@ name = "testguard"
 version = "0.1.0"
 dependencies = [
  "guardengine",
+ "libc",
  "roxmltree",
  "rustix",
  "schemars",

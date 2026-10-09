@@ -55,7 +55,7 @@
 
 - [ ] 3.1 在 `docs/decisions/testguard-sandbox.md` 与 `src/runner/sandbox.rs` 选定单平台、资源限额和进程终止预算，实现固定 argv/受控 worktree；`tests/sandbox.rs` 验默认禁网络/宿主写/生产凭据、路径/符号链接出界拒绝及十任务端口/数据库/工件不串扰。追踪 “Isolated bounded execution”。
 - [ ] 3.2 在 `src/runner/process.rs` 实现超时、取消与进程树回收，`tests/process_lifecycle.rs` 注入子孙进程、回收失败和超预算，验成功清理在配置预算内、未完成 unknown、失败不报告成功，记录 OS 强杀可能无输出。追踪 “Isolated bounded execution”“Strict engine projection and error transport”。
-- [ ] 3.3 在 `src/runner/collect.rs` 与原生 parser 实施工件大小/深度及 XML 无外部实体限制，`tests/artifact_security.rs` 注入实体、截断、超限、压缩/路径滥用和报告篡改各一例均拒绝且保留已有失败。追踪 “Isolated bounded execution”“Native adapter evidence fidelity”。
+- [x] 3.3 在 `src/runner/collect.rs` 与原生 parser 实施工件大小/深度及 XML 无外部实体限制，`tests/artifact_security.rs` 注入实体、截断、超限、压缩/路径滥用和报告篡改各一例均拒绝且保留已有失败。追踪 “Isolated bounded execution”“Native adapter evidence fidelity”。
 - [ ] 3.4 在 `src/report/store.rs` 实现按 attempt 追加的受限存储、原始摘要/来源/脱敏与部署保留策略，`tests/evidence_store.rs` 验不可覆盖前轮、访问隔离、必要工件删除/到期拒绝消费，审计字段完整。追踪 “Authenticated evidence audit and freshness”。
 - [ ] 3.5 在 `src/policy/retry.rs` 实现有界诊断重试与 flaky 分类，`tests/flaky_history.rs` 覆盖 pass→fail、fail→pass、fail→fail，每轮都保留原始工件，fail→pass 不自动清除 mandatory failure。追踪 “Append-only retries and quarantine”。
 - [ ] 3.6 在 `src/policy/quarantine.rs` 校验 owner/原因/到期/批准/替代保障，`tests/quarantine.rs` 验字段缺失、到期/撤销、候选自批均不能缩分母，只有新的合法批准基线能改变义务。追踪 “Append-only retries and quarantine”“Baseline authority and weakening review”。
