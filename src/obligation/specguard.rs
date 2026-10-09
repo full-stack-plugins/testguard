@@ -62,13 +62,64 @@ pub struct ImportedFixture {
     pub source: Export,
     pub plan: FrozenPlan,
 }
+const MAX_EXPORT_BYTES: usize = 1024 * 1024;
+struct Budget(usize);
+impl std::io::Write for Budget {
+    fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+        if bytes.len() > self.0 {
+            return Err(std::io::Error::other("SpecGuard import byte budget"));
+        }
+        self.0 -= bytes.len();
+        Ok(bytes.len())
+    }
+    fn flush(&mut self) -> std::io::Result<()> {
+        Ok(())
+    }
+}
+fn admit_mappings(mappings: &[CaseMapping], binding: &Binding) -> Result<(), String> {
+    if mappings.len() > 4096 {
+        return Err("SpecGuard mapping count budget".into());
+    }
+    let mut budget = Budget(MAX_EXPORT_BYTES);
+    serde_json::to_writer(&mut budget, binding).map_err(|_| "SpecGuard binding budget")?;
+    let mut instances = 0usize;
+    for m in mappings {
+        if m.environments.len() > 64 {
+            return Err("SpecGuard environment count budget".into());
+        }
+        instances = instances.saturating_add(m.environments.len());
+        if instances > 4096 {
+            return Err("SpecGuard matrix expansion budget".into());
+        }
+        // Account repeated identities before the importer constructs its owned matrix.
+        for _ in 0..=m.environments.len() {
+            serde_json::to_writer(&mut budget, m)
+                .map_err(|_| "SpecGuard mapping expansion budget")?;
+        }
+    }
+    Ok(())
+}
 pub fn import_fixture(
     input: &str,
     mappings: &[CaseMapping],
     binding: Binding,
 ) -> Result<ImportedFixture, String> {
     use super::{Obligation, ObligationSet, Source, SourceKind, VERSION, digest, require, unique};
+    require(
+        input.len() <= MAX_EXPORT_BYTES,
+        "SpecGuard export byte budget",
+    )?;
+    admit_mappings(mappings, &binding)?;
     let source: Export = serde_json::from_str(input).map_err(|e| e.to_string())?;
+    require(
+        source.obligations.len().saturating_mul(
+            mappings
+                .len()
+                .saturating_add(source.sources.len())
+                .saturating_add(source.scope.len()),
+        ) <= 1_000_000,
+        "SpecGuard import comparison budget",
+    )?;
     require(
         source.api_version == "specguard.domain/v1alpha1"
             && source.kind == "TestObligationSet"
@@ -190,4 +241,82 @@ pub fn import_fixture(
     };
     let plan = FrozenPlan::freeze(&local, binding)?;
     Ok(ImportedFixture { source, plan })
+}
+
+/// Controller-supplied fixture pins, fixed independently of candidate/uploaded bytes.
+/// Matching these values establishes consistency, never production authentication.
+#[derive(Clone, Debug, Serialize)]
+pub struct ExpectedFixtureExport {
+    pub artifact_digest: String,
+    pub baseline_digest: String,
+    pub source_digest: String,
+    pub candidate_oid: String,
+    pub scope: Vec<Identity>,
+}
+/// Private frozen case/environment mappings and immutable export expectations.
+pub struct PreparedFixtureImport {
+    expected: ExpectedFixtureExport,
+    mappings: Vec<CaseMapping>,
+    binding: Binding,
+}
+impl PreparedFixtureImport {
+    pub fn freeze(
+        expected: ExpectedFixtureExport,
+        mappings: &[CaseMapping],
+        binding: Binding,
+    ) -> Result<Self, String> {
+        admit_mappings(mappings, &binding)?;
+        serde_json::to_writer(Budget(MAX_EXPORT_BYTES), &expected)
+            .map_err(|_| "SpecGuard expectation budget")?;
+        let valid_digest = |s: &str| s.strip_prefix("sha256:").is_some_and(super::digest);
+        let valid_oid = |s: &str| {
+            [40, 64].contains(&s.len())
+                && s.bytes()
+                    .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
+        };
+        if mappings.is_empty()
+            || binding.repository.trim().is_empty()
+            || !super::digest(&binding.policy_digest)
+            || !valid_digest(&expected.artifact_digest)
+            || !valid_digest(&expected.baseline_digest)
+            || !valid_digest(&expected.source_digest)
+            || !valid_oid(&expected.candidate_oid)
+            || !valid_oid(&binding.base)
+            || expected.candidate_oid != binding.candidate
+            || expected.source_digest != format!("sha256:{}", binding.source_digest)
+            || expected.scope.is_empty()
+            || expected.scope.len() > 4096
+            || !expected.scope.windows(2).all(|w| w[0] < w[1])
+            || expected
+                .scope
+                .iter()
+                .any(|i| i.namespace.trim().is_empty() || i.id.trim().is_empty())
+        {
+            return Err("invalid protected fixture import expectations".into());
+        }
+        Ok(Self {
+            expected,
+            mappings: mappings.to_vec(),
+            binding,
+        })
+    }
+    pub fn import(&self, input: &str) -> Result<ImportedFixture, String> {
+        if input.len() > MAX_EXPORT_BYTES
+            || format!(
+                "sha256:{}",
+                crate::report::normalize::bytes_digest(input.as_bytes())
+            ) != self.expected.artifact_digest
+        {
+            return Err("SpecGuard exact export artifact mismatch/budget".into());
+        }
+        let imported = import_fixture(input, &self.mappings, self.binding.clone())?;
+        if imported.source.baseline_digest != self.expected.baseline_digest
+            || imported.source.source_digest != self.expected.source_digest
+            || imported.source.candidate_oid != self.expected.candidate_oid
+            || imported.source.scope != self.expected.scope
+        {
+            return Err("SpecGuard protected baseline/source/scope mismatch".into());
+        }
+        Ok(imported)
+    }
 }

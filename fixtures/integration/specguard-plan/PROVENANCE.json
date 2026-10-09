@@ -1,0 +1,32 @@
+{
+  "profile": "actual-pinned-SpecGuard-parser-export-with-explicit-fixture-authority",
+  "specguardCommit": "e0c75597b81f5c8045902683b71d3bec0b87731d",
+  "gitguardCommit": "95eb3d9e45dab9122f2f025c2b7767a981c61a60",
+  "guardengineCommit": "6527e2a67cb55690330c95dd12b496dd878ed39b",
+  "command": "cargo run --locked --example generate_testguard_plan -- SOURCE OUTPUT",
+  "sourceState": "actual Git committed Markdown; generator independently asserted empty git status",
+  "authority": "fixture-only at now=50; no production authentication",
+  "expected": {
+    "artifact_digest": "sha256:8b263964e4d3ed79ba621c73566e83cb6efd556cbe9d4e793db0daf1aa680ba8",
+    "baseline_digest": "sha256:8e13a767899ebec7e6d0d7caef3e73b28168705f2d21a4c04cc2ea0ae73d5f00",
+    "source_digest": "sha256:2b2a13bb45c17cad31380c581eb6265e43b32a3d23628c5ca388aadfcc64b4bd",
+    "candidate_oid": "8df2938fd39ad94c098691912ab1e2c9b0aff0b7",
+    "scope": [
+      {
+        "namespace": "demo",
+        "id": "R1"
+      },
+      {
+        "namespace": "demo",
+        "id": "R2"
+      }
+    ]
+  },
+  "sha256": {
+    "baseline.json": "020480171452bf06ab13c468f873b20a37ead1e1b9118fde0eba6279fd631289",
+    "obligations.json": "8b263964e4d3ed79ba621c73566e83cb6efd556cbe9d4e793db0daf1aa680ba8",
+    "generator.rs": "f54407aa97d00624e32661f3df80ba041a7ade213f1d801bd1783e0b713511e0",
+    "source.md": "6886f83d2067c4d9403fef5a7eac68524666a24ea4de57cc2065a366f1c5dd39",
+    "source.bundle": "4d17dc4e74c4abefe286c1bf47f1a7561c7aada3f651ae2f80895ae8176b5b04"
+  }
+}
