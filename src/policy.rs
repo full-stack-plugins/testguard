@@ -57,3 +57,6 @@ pub fn detect_weakening(baseline: &ScopePolicy, candidate: &ScopePolicy) -> Vec<
     }
     changes
 }
+
+#[cfg(target_os = "linux")]
+pub mod retry;
