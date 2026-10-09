@@ -108,7 +108,7 @@ pub struct Completion {
 fn identity(s: &str) -> bool {
     !s.trim().is_empty() && s.len() <= 256 && !s.contains('\0')
 }
-fn measure(value: &impl Serialize, limit: usize) -> Result<usize, String> {
+pub(crate) fn measure(value: &impl Serialize, limit: usize) -> Result<usize, String> {
     struct Count {
         remaining: usize,
     }
@@ -412,6 +412,28 @@ impl Drop for Completion {
     }
 }
 impl Completion {
+    pub(crate) fn verify_work(
+        &self,
+        plan: &FrozenPlan,
+        inv: &FixtureInvocation,
+        changes: &[Weakening],
+        advice: &[String],
+    ) -> Result<(), String> {
+        input_budget(plan, inv, changes, advice)?;
+        let work = hash(&(
+            "testguard.scheduler-work/v1alpha1",
+            plan,
+            inv,
+            changes,
+            advice,
+            transport::producer(),
+            self.owner.limits,
+        ))?;
+        if work != self.work {
+            return Err("completion differs from protected full work".into());
+        }
+        Ok(())
+    }
     pub fn bundle(&self) -> &FixtureBundle {
         &self.bundle
     }
