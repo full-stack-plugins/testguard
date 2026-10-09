@@ -125,3 +125,7 @@ The earlier Maven-only status is historical. `fixtures/junit/matrix/README.md` n
 Task2.1 accepted at58d8505: independent isolated full suite102 tests including an additional scope probe, followed by20 fresh actual Maven/Gradle runs. The original strong matrix assertions passed against recaptured raw bytes; timeout method markers, kill/reap, parameter collisions, old attempt refs and frozen denominators verified. See cloud ledger testguard-junit-independent-review.md. Exact local tool profiles only; no arbitrary JUnit/platform support or production authority.
 
 Normalization1.4 implementation9457f04 has104 full tests and strict Clippy/fmt passing, but remains unchecked pending separate review.
+
+## Independently accepted bounded normalization:15/30
+
+Task1.4 accepted at9457f04:104 maintained tests and3 independent edge probes pass. Domain artifact references retain their separate wire contract, exact raw bytes and attempt scope; generic canonicalization is not claimed globally bounded and reference integrity is not authentication. Store remains4MiB. Evidence: cloud ledger testguard-normalization-independent-review.md.
