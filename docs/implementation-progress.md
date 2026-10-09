@@ -119,3 +119,9 @@ Task3.4 independently accepted at75fcfee for the explicit controller-owned local
 ## Pinned Maven/Gradle JUnit matrix (task2.1 pending independent review)
 
 The earlier Maven-only status is historical. `fixtures/junit/matrix/README.md` now records20 actual runs on Maven3.9.9/Surefire3.5.2 and Gradle8.14.3 with JUnit4.13.2/Java21. Original stdout/stderr/XML and source/tool hashes are preserved. Missing-report and malformed inputs are explicitly consumer-side postprocessing, not native emitter claims. Unique and colliding parameter names come from actual framework execution. Frozen two-obligation coverage remains1/2 after partial execution. Only the exact Gradle profile is added; arbitrary versions/dialects and main `run` remain unavailable. Accepted task count remains13/30 pending independent review.
+
+## Independently accepted native JUnit matrix:14/30
+
+Task2.1 accepted at58d8505: independent isolated full suite102 tests including an additional scope probe, followed by20 fresh actual Maven/Gradle runs. The original strong matrix assertions passed against recaptured raw bytes; timeout method markers, kill/reap, parameter collisions, old attempt refs and frozen denominators verified. See cloud ledger testguard-junit-independent-review.md. Exact local tool profiles only; no arbitrary JUnit/platform support or production authority.
+
+Normalization1.4 implementation9457f04 has104 full tests and strict Clippy/fmt passing, but remains unchecked pending separate review.

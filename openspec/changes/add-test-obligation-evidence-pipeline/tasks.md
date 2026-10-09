@@ -1,6 +1,6 @@
 # TestGuard Evidence Pipeline Implementation Plan
 
-> **For agentic workers:** 后续实施使用 superpowers:subagent-driven-development 或 superpowers:executing-plans 逐任务执行；本轮只规划，不执行实现。所有 checkbox 表示尚未完成的未来工作。
+> **For agentic workers:** 后续实施使用 superpowers:subagent-driven-development 或 superpowers:executing-plans 逐任务执行；功能实施已获授权；checkbox 仅按独立评审证据登记，未勾项仍待完成。
 
 **Goal:** 建立批准义务、真实测试执行及精确候选证据的可追踪管线，防止部分绿色运行误报通过。
 
@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- 当前无运行时/测试/manifest/历史 native change；下列代码、schema、fixture 路径均拟新增。本次不创建它们、不勾选任务、不安装工具。
+- 历史规划基线没有运行时；当前实施已有源码、测试和原生报告。以实施进展记录和精确 commit 为准，不把历史规划描述当作当前状态。
 - 每项实施以拒绝/接受 fixture 驱动，保存真实输入、工具版本、执行命令、输出/退出与 digest；不能凭文档检查宣称运行完成。
 - 现有 `guard.partme.ai/v1alpha1` 严格 schema 不变；`guard.integration/v1alpha1` 为独立草案，GE-CONTRACT 冻结前不宣称互操作。无隐式 N/N-1。
 - `check` 目标 0/2/3/4；绑定前失败无信封，绑定后 error/cancelled decision=null；completed 引擎 profile decision 等于 report，partial 为 BLOCK。
@@ -42,7 +42,7 @@
 
 输入：T0 schema、固定工具和原生工件；输出：观察集合及冻结义务覆盖。2.1–2.3 可独立于外部 gate；2.4–2.6 的真实生产导出依赖 SG-BASELINE 与 GE-CONTRACT/ADAPTER，之前只能运行明确标识的本地 fixture。
 
-- [ ] 2.1 在 `src/adapters/junit.rs` 与 `fixtures/junit/` 采集 Maven/Gradle 真实报告/退出，`tests/junit_adapter.rs` 验八类 pass/fail/skip/zero/partial/timeout/missing-report/malformed 和参数化碰撞、旧文件，计数对照原生来源，0 false ALLOW。追踪 “Native adapter evidence fidelity”。
+- [x] 2.1 在 `src/adapters/junit.rs` 与 `fixtures/junit/` 采集 Maven/Gradle 真实报告/退出，`tests/junit_adapter.rs` 验八类 pass/fail/skip/zero/partial/timeout/missing-report/malformed 和参数化碰撞、旧文件，计数对照原生来源，0 false ALLOW。追踪 “Native adapter evidence fidelity”。
 - [x] 2.2 在 `src/adapters/cargo.rs` 与 `fixtures/cargo/` 依 1.1 固定协议采集真实 Cargo 运行，`tests/cargo_adapter.rs` 重复八类矩阵并验 ignored/参数/target/features 范围及未知版本拒绝，不假设未验证 JSON 能力。追踪 “Native adapter evidence fidelity”。
 - [x] 2.3 在 `src/adapters/mod.rs` 统一 `RawArtifactSet + ExecutorProfile → CaseObservation[]`，`tests/adapter_identity.rs` 验 native/stable ID、参数/环境消歧、重复与退出矛盾拒绝、仅接受本 attempt 工件。追踪 “Native adapter evidence fidelity”。
 - [ ] 2.4 在 `src/plan.rs` 消费 SG-BASELINE 的 `ObligationSet` 和不可变 binding/policy 生成 `FrozenPlan`，`tests/plan_freeze.rs` 用三义务×两环境逐个删除实例均留缺口，候选自改名单不能缩集合，未知导出 capability 拒绝。追踪 “Frozen approved obligation plan”“Requirement and environment trace coverage”。
