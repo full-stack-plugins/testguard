@@ -69,9 +69,15 @@
   },
   "properties": {
     "execution": {
-      "$ref": "#/definitions/Metric"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Metric"
+        }
+      ],
+      "description": "Distinct required (test_id, environment) pairs: numerator counts passing completed executions; denominator counts unique required pairs."
     },
     "missing": {
+      "description": "Missing obligation/test/environment edges. A missing shared execution retains an edge for every affected obligation.",
       "items": {
         "$ref": "#/definitions/Instance"
       },
@@ -84,7 +90,12 @@
       "type": "array"
     },
     "obligations": {
-      "$ref": "#/definitions/Metric"
+      "allOf": [
+        {
+          "$ref": "#/definitions/Metric"
+        }
+      ],
+      "description": "Required obligations: numerator counts obligations whose every required edge is satisfied; denominator counts obligations."
     },
     "schema_version": {
       "const": "testguard.local/v1",
@@ -97,6 +108,7 @@
       "type": "array"
     },
     "unsatisfied": {
+      "description": "Unsatisfied obligation/test/environment edges, including missing, failed, skipped and unfinished executions.",
       "items": {
         "$ref": "#/definitions/Instance"
       },

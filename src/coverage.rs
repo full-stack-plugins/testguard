@@ -23,9 +23,13 @@ impl Metric {
 #[serde(deny_unknown_fields)]
 pub struct CoverageEvidence {
     pub schema_version: String,
+    /// Distinct required (test_id, environment) pairs: numerator counts passing completed executions; denominator counts unique required pairs.
     pub execution: Metric,
+    /// Required obligations: numerator counts obligations whose every required edge is satisfied; denominator counts obligations.
     pub obligations: Metric,
+    /// Missing obligation/test/environment edges. A missing shared execution retains an edge for every affected obligation.
     pub missing: Vec<Instance>,
+    /// Unsatisfied obligation/test/environment edges, including missing, failed, skipped and unfinished executions.
     pub unsatisfied: Vec<Instance>,
     pub source_metrics: Vec<SourceMetric>,
     pub not_applicable_reasons: Vec<String>,
@@ -54,7 +58,12 @@ pub fn assess(
     )?;
     let mut missing = Vec::new();
     let mut unsatisfied = Vec::new();
-    let mut passed = 0;
+    let required_executions: std::collections::BTreeSet<_> = plan
+        .instances()
+        .iter()
+        .map(|i| (&i.test_id, &i.environment))
+        .collect();
+    let mut passed_executions = std::collections::BTreeSet::new();
     for i in plan.instances() {
         let found = attempt
             .observations
@@ -71,7 +80,7 @@ pub fn assess(
                     && attempt.finished
                     && attempt.exit_code == Some(0) =>
             {
-                passed += 1;
+                passed_executions.insert((&i.test_id, &i.environment));
             }
             _ => unsatisfied.push(i.clone()),
         }
@@ -100,8 +109,8 @@ pub fn assess(
         coverage: CoverageEvidence {
             schema_version: VERSION.into(),
             execution: Metric {
-                numerator: passed,
-                denominator: plan.instances().len(),
+                numerator: passed_executions.len(),
+                denominator: required_executions.len(),
             },
             obligations: Metric {
                 numerator: satisfied,

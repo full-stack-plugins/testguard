@@ -58,3 +58,16 @@ fn duplicate_inventory_and_exit_or_digest_conflicts_reject() {
     tampered.output.push_str("tampered");
     assert!(parse(&tampered, &profile).is_err());
 }
+#[test]
+fn cargo_adapter_rejects_a_supported_junit_profile_for_real_cargo_bytes() {
+    let (raw, mut profile) = input();
+    profile.tool = "maven-surefire".into();
+    profile.version = "3.5.2".into();
+    profile.protocol = "junit-xml-v1".into();
+    assert!(testguard::supports_profile(
+        &profile.tool,
+        &profile.version,
+        &profile.protocol
+    ));
+    assert!(parse(&raw, &profile).is_err());
+}

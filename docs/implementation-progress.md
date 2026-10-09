@@ -42,3 +42,13 @@ Ruling: missing/malformed corpus cases mutate or remove artifacts after genuine 
 Ruling: SpecGuard producer's actual fixture export can be consumed now under local-fixture only; production profile rejects until controller authority/GE contracts are integrated. Cost if wrong: update importer and pinned compatibility corpus, not protected gates.
 
 Verification found and fixed: deserialized FrozenPlan bypass could reduce the instance matrix; assessment now revalidates it (RED→GREEN test). Unknown JUnit child status could silently look like pass; unsupported child elements now reject (RED→GREEN test). Cargo timeout's partial status line now remains unknown (real timeout RED→GREEN). Clippy found a collapsible conditional; refactored without suppressions.
+
+## Independent review fix pass
+
+Review: `/workspace/guard-implementation-ledger/testguard-review.md`; base `fe85e3d`.
+
+- P2 adapter profile fidelity: added a regression using genuine captured Cargo bytes with the otherwise supported Surefire profile. RED: Cargo parser incorrectly accepted it. GREEN: Cargo entry point now requires `tool=cargo` and the pinned supported triple. Global discovery still lists both adapters correctly.
+- P2 execution denominator: added shared-test mappings with six obligation edges but four unique test/environment executions. RED: complete metric6/6 instead of4/4; a missing shared execution4/6 instead of3/4. GREEN: execution numerator/denominator use distinct required pairs, while obligation satisfaction and missing/unsatisfied trace edges retain every obligation. Missing case2/Windows yields execution3/4 and obligations2/3; missing shared case1/Windows yields execution3/4 and obligations1/3 plus both O1/O3 gaps. Extra passes still cannot fill gaps.
+- Updated CoverageEvidence field descriptions, generated Draft7 schema and CLI counting documentation together. No wire field/version change; this corrects the existing execution metric semantics.
+- Final validation: `cargo test`57 passed/0 failed (including fresh native Cargo execution and native Maven capture consumers); Clippy warnings denied, formatting, schema shape checks and diff whitespace checks passed. Original independent reviewer repro now prints `Cargo parser accepts Surefire profile: false` and execution3/4, obligations2/3.
+- Root review previously accepted local tasks1.1/1.2/1.3/1.6; root retains ownership of acceptance registration/checkboxes. This fix pass does not expand production trust, sandbox or other partial-task claims.

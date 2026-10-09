@@ -109,3 +109,99 @@ fn empty_denominators_include_an_explicit_na_reason_in_output() {
             .is_some_and(|a| !a.is_empty())
     );
 }
+fn shared_test_plan() -> testguard::plan::FrozenPlan {
+    let mut source =
+        testguard::obligation::ObligationSet::parse(&common::obligations().to_string()).unwrap();
+    source.obligations[2].test_id = source.obligations[0].test_id.clone();
+    testguard::plan::FrozenPlan::freeze(&source, serde_json::from_value(common::binding()).unwrap())
+        .unwrap()
+}
+fn unique_attempt(plan: &testguard::plan::FrozenPlan) -> testguard::report::AttemptRecord {
+    let mut attempt = common::attempt(plan);
+    let mut identities = std::collections::BTreeSet::new();
+    attempt
+        .observations
+        .retain(|o| identities.insert((o.test_id.clone(), o.environment.clone())));
+    attempt
+}
+#[test]
+fn execution_counts_unique_test_environment_pairs_while_obligations_keep_all_edges() {
+    let plan = shared_test_plan();
+    assert_eq!(plan.instances().len(), 6);
+    let mut attempt = unique_attempt(&plan);
+    assert_eq!(attempt.observations.len(), 4);
+    let complete = assess(&plan, &attempt, &[]).unwrap();
+    assert_eq!(
+        (
+            complete.coverage.execution.numerator,
+            complete.coverage.execution.denominator
+        ),
+        (4, 4)
+    );
+    assert_eq!(
+        (
+            complete.coverage.obligations.numerator,
+            complete.coverage.obligations.denominator
+        ),
+        (3, 3)
+    );
+    assert_eq!(complete.decision, Decision::Allow);
+    attempt
+        .observations
+        .retain(|o| !(o.test_id == "case2" && o.environment == "windows"));
+    let missing = assess(&plan, &attempt, &[]).unwrap();
+    assert_eq!(
+        (
+            missing.coverage.execution.numerator,
+            missing.coverage.execution.denominator
+        ),
+        (3, 4)
+    );
+    assert_eq!(
+        (
+            missing.coverage.obligations.numerator,
+            missing.coverage.obligations.denominator
+        ),
+        (2, 3)
+    );
+    assert_eq!(missing.coverage.missing.len(), 1);
+    assert_eq!(missing.decision, Decision::Block);
+}
+#[test]
+fn one_missing_shared_execution_retains_both_obligation_gaps_and_extra_pass_cannot_fill_it() {
+    let plan = shared_test_plan();
+    let mut attempt = unique_attempt(&plan);
+    attempt
+        .observations
+        .retain(|o| !(o.test_id == "case1" && o.environment == "windows"));
+    let mut extra = attempt.observations[0].clone();
+    extra.test_id = "unrequired-extra".into();
+    attempt.observations.push(extra);
+    let result = assess(&plan, &attempt, &[]).unwrap();
+    assert_eq!(
+        (
+            result.coverage.execution.numerator,
+            result.coverage.execution.denominator
+        ),
+        (3, 4)
+    );
+    assert_eq!(
+        (
+            result.coverage.obligations.numerator,
+            result.coverage.obligations.denominator
+        ),
+        (1, 3)
+    );
+    assert_eq!(result.coverage.missing.len(), 2);
+    assert_eq!(result.coverage.unsatisfied.len(), 2);
+    assert_eq!(
+        result
+            .coverage
+            .missing
+            .iter()
+            .map(|i| i.obligation_id.as_str())
+            .collect::<Vec<_>>(),
+        ["O1", "O3"]
+    );
+    assert_eq!(result.decision, Decision::Block);
+}

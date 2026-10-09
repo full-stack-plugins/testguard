@@ -11,7 +11,8 @@ pub fn parse(
     profile: &ExecutorProfile,
 ) -> Result<Vec<CaseObservation>, String> {
     require(
-        crate::supports_profile(&profile.tool, &profile.version, &profile.protocol),
+        profile.tool == "cargo"
+            && crate::supports_profile(&profile.tool, &profile.version, &profile.protocol),
         "unsupported executor profile",
     )?;
     require(
